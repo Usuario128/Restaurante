@@ -88,20 +88,8 @@ struct RegistroView: View {
                 .padding()
             }
             .navigationBarHidden(true)
-            .fullScreenCover(item: $storage.usuarioActual) { usuario in
-                VStack {
-                    Text("¡Usuario registrado con éxito!")
-                        .font(.title)
-                        .padding()
-                    Text("Nombre: \(usuario.nombre)")
-                    Text("Email: \(usuario.email)")
-                    Text("Rol: \(usuario.rol.rawValue)")
-                    
-                    Button("Volver al Registro") {
-                        storage.usuarioActual = nil
-                    }
-                    .padding()
-                }
+            .sheet(isPresented: $mostrarImagePicker) {
+                ImagePicker(imagenSeleccionada: $imagen)
             }
         }
     }
@@ -133,8 +121,8 @@ struct RegistroView: View {
             return
         }
         
-        // 👉 GUARDAR COMO EMPLEADO (CORREGIDO)
         let imagenData = imagen?.jpegData(compressionQuality: 0.8)
+        
         let usuario = Usuario(
             nombre: nombre,
             email: email,
@@ -142,7 +130,7 @@ struct RegistroView: View {
             direccion: direccion,
             password: password,
             rol: .empleado,
-            imagenData: imagenData,
+            imagenData: imagenData
         )
         
         if let error = storage.agregarUsuario(usuario) {
@@ -150,4 +138,3 @@ struct RegistroView: View {
         }
     }
 }
-
