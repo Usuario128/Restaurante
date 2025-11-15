@@ -1,6 +1,3 @@
-//  RegistroView.swift
-//  Restaurante
-
 import SwiftUI
 
 struct RegistroView: View {
@@ -28,23 +25,37 @@ struct RegistroView: View {
                     
                     Group {
                         TextField("Nombre", text: $nombre)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                        
                         TextField("Email", text: $email)
                             .keyboardType(.emailAddress)
-                            .autocapitalization(.none)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                        
                         TextField("Teléfono", text: $telefono)
                             .keyboardType(.numberPad)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                        
                         TextField("Dirección", text: $direccion)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
                     }
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(8)
                     
                     SecureField("Contraseña", text: $password)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
                     
                     SecureField("Confirmar Contraseña", text: $confirmarPassword)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
@@ -138,3 +149,4 @@ struct RegistroView: View {
         }
     }
 }
+

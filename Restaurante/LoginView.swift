@@ -15,7 +15,7 @@ struct LoginView: View {
     @State private var rememberMe = false
     @State private var errorMessage: String?
     
-    @State private var navegarAdmin = false // Controla navegación a AdministradorView
+    @State private var navegarAdmin = false
 
     var body: some View {
         NavigationView {
@@ -26,12 +26,15 @@ struct LoginView: View {
                 
                 TextField("Ingresa tu email", text: $email)
                     .keyboardType(.emailAddress)
-                    .autocapitalization(.none)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(8)
                 
                 SecureField("Ingresa tu contraseña", text: $password)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(8)
@@ -56,17 +59,13 @@ struct LoginView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 
-                
-                
                 Spacer()
             }
             .padding()
-            // Navegación fullScreen al AdministradorView
             .fullScreenCover(isPresented: $navegarAdmin) {
                 AdministradorView()
             }
             .onAppear {
-                // Si hay usuario recordado, iniciar sesión automáticamente
                 if let emailRecordado = UserDefaults.standard.string(forKey: "usuarioRecordado"),
                    let usuario = storage.usuarios.first(where: { $0.email.lowercased() == emailRecordado.lowercased() }) {
                     storage.usuarioActual = usuario
@@ -99,14 +98,11 @@ struct LoginView: View {
             return
         }
         
-        // Guardar sesión
         storage.usuarioActual = usuario
         if rememberMe {
             UserDefaults.standard.set(usuario.email, forKey: "usuarioRecordado")
         }
         
-        // Siempre navegar a AdministradorView
         navegarAdmin = true
     }
 }
-
