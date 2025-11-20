@@ -1,9 +1,6 @@
-//
 //  QRUsuarioView.swift
 //  Restaurante
-//
-//  Created by win603 on 14/11/25.
-//
+//  Internacionalizado: inglés/español
 
 import SwiftUI
 
@@ -13,9 +10,11 @@ struct QRUsuarioView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("QR del Empleado")
+            // 🔹 Título
+            Text(NSLocalizedString("qr_titulo", comment: "QR title for employee"))
                 .font(.title.bold())
             
+            // 🔹 Imagen QR
             if let qrImage = qrImage {
                 Image(uiImage: qrImage)
                     .resizable()
@@ -27,7 +26,7 @@ struct QRUsuarioView: View {
                     .cornerRadius(12)
                     .shadow(radius: 5)
             } else {
-                ProgressView("Generando QR...")
+                ProgressView(NSLocalizedString("qr_generando", comment: "QR generating progress"))
             }
         }
         .padding()
@@ -36,8 +35,10 @@ struct QRUsuarioView: View {
         }
     }
     
-    /// Generar QR usando API gratuita
+    // 🔹 Función para generar QR usando API gratuita
     private func generarQR() {
+        let activoTexto = usuario.activo ? NSLocalizedString("si", comment: "Yes") : NSLocalizedString("no", comment: "No")
+        
         let texto = """
         EMPLEADO:
         Nombre: \(usuario.nombre)
@@ -45,7 +46,7 @@ struct QRUsuarioView: View {
         Teléfono: \(usuario.telefono)
         Dirección: \(usuario.direccion)
         Rol: \(usuario.rol.rawValue.uppercased())
-        Activo: \(usuario.activo ? "Sí" : "No")
+        Activo: \(activoTexto)
         """
 
         let encoded = texto.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
@@ -62,3 +63,4 @@ struct QRUsuarioView: View {
         }.resume()
     }
 }
+

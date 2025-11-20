@@ -19,8 +19,10 @@ struct AgregarPlatilloView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                // ✅ Barra superior personalizada
+                
+                // ===== Barra Superior / Top Bar =====
                 HStack {
+                    // Botón cerrar / Close button
                     Button(action: { dismiss() }) {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.red)
@@ -29,11 +31,13 @@ struct AgregarPlatilloView: View {
                     
                     Spacer()
                     
-                    Text("Agregar Platillo")
+                    // Título / Title
+                    Text("Agregar Platillo / Add Dish") // Español / Inglés
                         .font(.headline)
                     
                     Spacer()
                     
+                    // Botón guardar / Save button
                     Button(action: {
                         guard let precioDouble = Double(precio) else { return }
                         let nuevo = Platillo(
@@ -55,22 +59,25 @@ struct AgregarPlatilloView: View {
                 .padding()
                 .background(Color(.systemGray6))
                 
-                // ✅ Contenido del formulario
+                // ===== Contenido del formulario / Form Content =====
                 Form {
-                    Section("Información del platillo") {
-                        TextField("Nombre", text: $nombre)
-                        TextField("Descripción", text: $descripcion)
-                        TextField("Precio", text: $precio)
+                    
+                    // Sección Información / Information Section
+                    Section(header: Text("Información del platillo / Dish Information")) {
+                        TextField("Nombre / Name", text: $nombre)
+                        TextField("Descripción / Description", text: $descripcion)
+                        TextField("Precio / Price", text: $precio)
                             .keyboardType(.decimalPad)
                         
-                        Picker("Categoría", selection: $categoria) {
+                        Picker("Categoría / Category", selection: $categoria) {
                             ForEach(Categoria.allCases, id: \.self) { cat in
-                                Text(cat.rawValue.capitalized)
+                                Text(cat.rawValue.capitalized) // Se pueden traducir con Localizable si se desea
                             }
                         }
                     }
                     
-                    Section("Imagen") {
+                    // Sección Imagen / Image Section
+                    Section(header: Text("Imagen / Image")) {
                         if let imagen = imagen {
                             Image(uiImage: imagen)
                                 .resizable()
@@ -78,14 +85,15 @@ struct AgregarPlatilloView: View {
                                 .frame(height: 150)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
-                        Button("Seleccionar imagen") { mostrarSelector.toggle() }
+                        Button("Seleccionar imagen / Select Image") { mostrarSelector.toggle() }
                     }
                 }
             }
             .sheet(isPresented: $mostrarSelector) {
-                ImagePicker(imagenSeleccionada: $imagen) 
+                ImagePicker(imagenSeleccionada: $imagen)
             }
-            .navigationBarHidden(true) // ✅ Oculta la barra de navegación nativa
+            .navigationBarHidden(true) // Oculta la barra de navegación nativa / Hide native navigation bar
         }
     }
 }
+

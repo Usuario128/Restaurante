@@ -1,9 +1,6 @@
-//
 //  ListaMesasView.swift
 //  Restaurante
-//
-//  Created by win603 on 12/11/25.
-//
+//  Internacionalizado: inglés/español
 
 import SwiftUI
 
@@ -17,11 +14,13 @@ struct ListaMesasView: View {
                 ForEach(mesas) { mesa in
                     NavigationLink(destination: DetalleMesaView(mesa: mesa, mesas: $mesas)) {
                         VStack(alignment: .leading) {
-                            Text("Mesa \(mesa.numero)")
+                            Text("\(NSLocalizedString("mesa_numero", comment: "Mesa number")) \(mesa.numero)")
                                 .font(.headline)
-                            Text(mesa.disponible ? "Disponible" : "Ocupada")
+                            Text(mesa.disponible
+                                 ? NSLocalizedString("mesa_disponible", comment: "Table available")
+                                 : NSLocalizedString("mesa_ocupada", comment: "Table occupied"))
                                 .foregroundColor(mesa.disponible ? .green : .red)
-                            Text("Capacidad: \(mesa.capacidad)")
+                            Text(String(format: NSLocalizedString("mesa_capacidad", comment: "Table capacity"), mesa.capacidad))
                                 .font(.subheadline)
                         }
                     }
@@ -31,12 +30,12 @@ struct ListaMesasView: View {
                     StorageMesas.shared.guardarMesas(mesas)
                 }
             }
-            .navigationTitle("Mesas disponibles")
+            .navigationTitle(NSLocalizedString("lista_mesas_titulo", comment: "Available Tables"))
             .toolbar {
                 Button {
                     mostrarAgregarMesa.toggle()
                 } label: {
-                    Label("Agregar Mesa", systemImage: "plus")
+                    Label(NSLocalizedString("boton_agregar_mesa", comment: "Add Table button"), systemImage: "plus")
                 }
             }
             .sheet(isPresented: $mostrarAgregarMesa) {
@@ -45,4 +44,3 @@ struct ListaMesasView: View {
         }
     }
 }
-

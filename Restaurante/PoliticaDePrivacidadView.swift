@@ -1,4 +1,3 @@
-//
 //  PoliticaDePrivacidadView.swift
 //  Restaurante
 //
@@ -15,10 +14,10 @@ struct PoliticaDePrivacidadView: View {
                     
                     // Encabezado
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Políticas de Privacidad")
+                        Text(NSLocalizedString("politica_titulo", comment: "Título de la política de privacidad"))
                             .font(.largeTitle)
                             .bold()
-                        Text("Obtenga la información sobre nuestras políticas de privacidad")
+                        Text(NSLocalizedString("politica_subtitulo", comment: "Subtítulo de la política de privacidad"))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -26,72 +25,44 @@ struct PoliticaDePrivacidadView: View {
                     
                     // Secciones
                     PoliticaSection(
-                        titulo: "1. Información que Recopilamos",
-                        contenido: """
-                        Recopilamos información personal cuando te registras en nuestra plataforma, realizas una reserva o interactúas con nuestro sistema. La información que recopilamos puede incluir:
-                        • Datos de contacto: Nombre, dirección de correo electrónico, número de teléfono.
-                        • Información de la reserva: Fecha, hora, número de personas y detalles de la mesa reservada.
-                        • Comentarios y valoraciones: Información que decides proporcionarnos sobre tu experiencia en el restaurante.
-                        • Información de pago: Si realizas pagos a través de nuestra plataforma, recopilamos la información relacionada con la transacción a través de un procesador de pagos externo.
-                        """
+                        titulo: NSLocalizedString("politica_1_titulo", comment: "Sección 1 título"),
+                        contenido: NSLocalizedString("politica_1_contenido", comment: "Sección 1 contenido")
                     )
                     
                     PoliticaSection(
-                        titulo: "2. Uso de la Información",
-                        contenido: """
-                        La información recopilada se utiliza para:
-                        • Gestionar tus reservas: Confirmar, modificar o cancelar tus reservas.
-                        • Proporcionar una mejor experiencia: Mejorar el servicio ofrecido, gestionar tus comentarios y sugerencias.
-                        • Comunicarnos contigo: Enviar confirmaciones de reservas, actualizaciones y promociones.
-                        • Cumplir con las obligaciones legales: Gestionar registros y transacciones según las leyes aplicables.
-                        """
+                        titulo: NSLocalizedString("politica_2_titulo", comment: "Sección 2 título"),
+                        contenido: NSLocalizedString("politica_2_contenido", comment: "Sección 2 contenido")
                     )
                     
                     PoliticaSection(
-                        titulo: "3. Protección de la Información",
-                        contenido: """
-                        Implementamos medidas de seguridad para proteger tu información personal, pero debes tener en cuenta que ninguna transmisión de datos por Internet es 100% segura. Utilizamos protocolos de cifrado para proteger los datos sensibles durante la transmisión.
-                        """
+                        titulo: NSLocalizedString("politica_3_titulo", comment: "Sección 3 título"),
+                        contenido: NSLocalizedString("politica_3_contenido", comment: "Sección 3 contenido")
                     )
                     
                     PoliticaSection(
-                        titulo: "4. Compartir Información con Terceros",
-                        contenido: """
-                        No vendemos, alquilamos ni compartimos tu información personal con terceros, excepto en los siguientes casos:
-                        • Proveedores de servicios: Contratamos a terceros para procesar pagos y gestionar algunas funciones del sistema.
-                        • Cumplimiento legal: Podemos divulgar tu información si así lo requiere la ley o una autoridad gubernamental.
-                        """
+                        titulo: NSLocalizedString("politica_4_titulo", comment: "Sección 4 título"),
+                        contenido: NSLocalizedString("politica_4_contenido", comment: "Sección 4 contenido")
                     )
                     
                     PoliticaSection(
-                        titulo: "5. Derechos sobre tu Información",
-                        contenido: """
-                        Tienes derecho a:
-                        • Acceder, corregir o eliminar tu información personal.
-                        • Optar por no recibir comunicaciones promocionales o de marketing.
-                        
-                        Si deseas ejercer estos derechos, contáctanos a través de marcelo.neri@iest.edu.mx.
-                        """
+                        titulo: NSLocalizedString("politica_5_titulo", comment: "Sección 5 título"),
+                        contenido: NSLocalizedString("politica_5_contenido", comment: "Sección 5 contenido")
                     )
                     
                     PoliticaSection(
-                        titulo: "6. Cookies y Tecnología Similar",
-                        contenido: """
-                        Utilizamos cookies y tecnologías similares para mejorar tu experiencia, personalizar el contenido y analizar el tráfico. Puedes desactivar las cookies en tu navegador, pero algunas funcionalidades del sistema pueden verse afectadas.
-                        """
+                        titulo: NSLocalizedString("politica_6_titulo", comment: "Sección 6 título"),
+                        contenido: NSLocalizedString("politica_6_contenido", comment: "Sección 6 contenido")
                     )
                     
                     PoliticaSection(
-                        titulo: "7. Cambios en esta Política",
-                        contenido: """
-                        Nos reservamos el derecho de actualizar o modificar esta política de privacidad en cualquier momento. Te notificaremos sobre cualquier cambio importante mediante un aviso en el sitio web.
-                        """
+                        titulo: NSLocalizedString("politica_7_titulo", comment: "Sección 7 título"),
+                        contenido: NSLocalizedString("politica_7_contenido", comment: "Sección 7 contenido")
                     )
                     
                     // Footer
                     VStack {
                         Divider()
-                        Text("© 2024 ReservaMesa. Todos los derechos reservados.")
+                        Text(NSLocalizedString("politica_footer", comment: "Footer con derechos reservados"))
                             .font(.footnote)
                             .foregroundColor(.secondary)
                             .padding(.top, 8)
@@ -101,7 +72,6 @@ struct PoliticaDePrivacidadView: View {
                 }
                 .padding(.horizontal)
             }
-            
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -127,3 +97,4 @@ struct PoliticaSection: View {
 #Preview {
     PoliticaDePrivacidadView()
 }
+

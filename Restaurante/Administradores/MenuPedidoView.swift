@@ -1,8 +1,6 @@
 //  MenuPedidoView.swift
 //  Restaurante
-//
-//  Muestra los platillos del menú en tarjetas visuales sin separar por categorías.
-//  AHORA INCLUYE: cerrar cuenta (vaciar pedidos + liberar mesa)
+//  Internacionalizado: inglés/español
 
 import SwiftUI
 
@@ -44,7 +42,6 @@ struct MenuPedidoView: View {
         }
     }
     
-    /// 🔴 Vacía la cuenta, elimina la reservación y libera la mesa
     private func cerrarCuenta() {
         guard let idx = mesaIndex else { return }
         mesas[idx].pedidos.removeAll()
@@ -63,24 +60,19 @@ struct MenuPedidoView: View {
                     // 🔹 RECORRER TODAS LAS CATEGORÍAS
                     ForEach(Categoria.allCases, id: \.self) { categoria in
 
-                        // FILTRAR PLATILLOS POR CATEGORÍA
                         let platillosCategoria = menu.filter { $0.categoria == categoria }
 
-                        // SI NO HAY PLATILLOS EN ESA CATEGORÍA → NO MOSTRAR
                         if !platillosCategoria.isEmpty {
 
-                            // TÍTULO DE CATEGORÍA
                             Text(categoria.rawValue.capitalized)
                                 .font(.title2.bold())
                                 .padding(.horizontal)
 
-                            // GRID DE PLATILLOS
                             LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 16)], spacing: 16) {
                                 
                                 ForEach(platillosCategoria) { platillo in
                                     VStack(spacing: 8) {
                                         
-                                        // Imagen
                                         if let data = platillo.imagenData,
                                            let ui = UIImage(data: data) {
                                             Image(uiImage: ui)
@@ -98,7 +90,6 @@ struct MenuPedidoView: View {
                                                 .opacity(0.6)
                                         }
                                         
-                                        // Información del platillo
                                         VStack(alignment: .leading, spacing: 4) {
                                             Text(platillo.nombre)
                                                 .font(.headline)
@@ -116,7 +107,6 @@ struct MenuPedidoView: View {
                                                 .foregroundColor(.green)
                                         }
 
-                                        // CONTROLES DE CANTIDAD
                                         let cantidad = pedidosActuales.filter { $0.id == platillo.id }.count
 
                                         HStack {
@@ -161,7 +151,7 @@ struct MenuPedidoView: View {
             // TOTAL + BOTONES
             VStack(spacing: 12) {
                 HStack {
-                    Text("💵 Total:")
+                    Text("💵 \(NSLocalizedString("total", comment: "Total label"))")
                         .font(.headline)
                     Spacer()
                     Text(String(format: "$%.2f", totalMesa))
@@ -176,7 +166,7 @@ struct MenuPedidoView: View {
                     Button(role: .destructive) {
                         mostrarAlerta = true
                     } label: {
-                        Text("Cerrar cuenta")
+                        Text(NSLocalizedString("boton_cerrar_cuenta", comment: "Close account button"))
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
@@ -185,7 +175,7 @@ struct MenuPedidoView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Volver")
+                        Text(NSLocalizedString("boton_volver", comment: "Back button"))
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.bordered)
@@ -194,17 +184,17 @@ struct MenuPedidoView: View {
                 .padding(.bottom)
             }
             .background(Color(UIColor.systemBackground))
-            .navigationTitle("Gestión de Pedido")
+            .navigationTitle(NSLocalizedString("menu_pedido_titulo", comment: "Order management title"))
             .navigationBarTitleDisplayMode(.inline)
             
             // 🔔 ALERTA DE CONFIRMACIÓN
-            .alert("¿Cerrar cuenta?", isPresented: $mostrarAlerta) {
-                Button("Cancelar", role: .cancel) { }
-                Button("Confirmar", role: .destructive) {
+            .alert(NSLocalizedString("alerta_cerrar_cuenta_titulo", comment: "Close account alert title"), isPresented: $mostrarAlerta) {
+                Button(NSLocalizedString("alerta_cerrar_cuenta_cancelar", comment: "Cancel button"), role: .cancel) { }
+                Button(NSLocalizedString("alerta_cerrar_cuenta_confirmar", comment: "Confirm button"), role: .destructive) {
                     cerrarCuenta()
                 }
             } message: {
-                Text("Se eliminarán todos los pedidos y la mesa quedará disponible.")
+                Text(NSLocalizedString("alerta_cerrar_cuenta_mensaje", comment: "Close account alert message"))
             }
         }
         .onAppear {
@@ -212,3 +202,4 @@ struct MenuPedidoView: View {
         }
     }
 }
+

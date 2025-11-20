@@ -1,24 +1,19 @@
-//
-//  SobreNosotrosView.swift
-//  Restaurante
-//
-//  Created by win603 on 07/11/25.
-//
-
 import SwiftUI
 
 struct SobreNosotrosView: View {
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     
                     // Encabezado
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Bienvenido al Sistema de Gestión de Reservas ReservaMesa")
+                        Text(NSLocalizedString("sobre_titulo_principal", comment: "Título principal"))
                             .font(.largeTitle)
                             .bold()
-                        Text("Reserva tu mesa, consulta el menú y mucho más.")
+                        Text(NSLocalizedString("sobre_subtitulo_principal", comment: "Subtítulo principal"))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -26,47 +21,29 @@ struct SobreNosotrosView: View {
                     
                     // Secciones
                     SobreNosotrosSection(
-                        titulo: "Acerca de Nuestro Servicio",
-                        contenido: """
-                        El sistema de gestión de reservas para el restaurante está diseñado para ofrecer una experiencia eficiente y conveniente tanto para los usuarios como para el personal del restaurante. A través de este sistema, se busca facilitar el proceso de reserva de mesas, consulta del menú y gestión de comentarios.
-                        """
+                        titulo: NSLocalizedString("sobre_seccion_acerca", comment: "Sección acerca de"),
+                        contenido: NSLocalizedString("sobre_contenido_acerca", comment: "Contenido acerca de")
                     )
                     
                     SobreNosotrosSection(
-                        titulo: "¿Cómo Funciona?",
-                        contenido: """
-                        Usar nuestro sistema es muy sencillo:
-                        • Reserva en línea: Escoge la fecha, hora y número de personas para reservar tu mesa.
-                        • Consulta el Menú: Navega por nuestro menú completo para ver nuestras especialidades del día y opciones a la carta.
-                        • Gestiona tus reservas: Puedes ver, modificar o cancelar tus reservas en cualquier momento.
-                        • Deja comentarios: Al finalizar tu experiencia, puedes dejar un comentario sobre la comida y el servicio.
-                        """
+                        titulo: NSLocalizedString("sobre_seccion_como_funciona", comment: "Sección cómo funciona"),
+                        contenido: NSLocalizedString("sobre_contenido_como_funciona", comment: "Contenido cómo funciona")
                     )
                     
                     SobreNosotrosSection(
-                        titulo: "Servicios Disponibles",
-                        contenido: """
-                        • Reservas en línea: Reserva tu mesa desde cualquier lugar, en cualquier momento.
-                        • Menú Interactivo: Consulta nuestro menú digital, con imágenes y descripciones detalladas.
-                        • Gestión de Reservas: Accede a tu historial de reservas y realiza cambios o cancelaciones fácilmente.
-                        • Comentarios y Valoraciones: Deja tus comentarios sobre el servicio y las opciones gastronómicas.
-                        """
+                        titulo: NSLocalizedString("sobre_seccion_servicios", comment: "Sección servicios"),
+                        contenido: NSLocalizedString("sobre_contenido_servicios", comment: "Contenido servicios")
                     )
                     
                     SobreNosotrosSection(
-                        titulo: "Contacto",
-                        contenido: """
-                        Para cualquier consulta o si necesitas asistencia, no dudes en contactarnos:
-                        • Correo Electrónico: marcelo.neri@iest.edu.mx
-                        • Teléfono: 845 103 3478
-                        • Dirección: Calle Ejemplo 123, Ciudad, País
-                        """
+                        titulo: NSLocalizedString("sobre_seccion_contacto", comment: "Sección contacto"),
+                        contenido: NSLocalizedString("sobre_contenido_contacto", comment: "Contenido contacto")
                     )
                     
                     // Footer
                     VStack {
                         Divider()
-                        Text("© 2024 ReservaMesa. Todos los derechos reservados.")
+                        Text(NSLocalizedString("sobre_footer", comment: "Footer"))
                             .font(.footnote)
                             .foregroundColor(.secondary)
                             .padding(.top, 8)
@@ -76,7 +53,9 @@ struct SobreNosotrosView: View {
                 }
                 .padding(.horizontal)
             }
+            .navigationTitle("") // Sin título grande
             .navigationBarTitleDisplayMode(.inline)
+            // No toolbar personalizado
         }
     }
 }
@@ -101,3 +80,4 @@ struct SobreNosotrosSection: View {
 #Preview {
     SobreNosotrosView()
 }
+

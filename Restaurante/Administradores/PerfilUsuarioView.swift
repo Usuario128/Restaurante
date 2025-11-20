@@ -1,9 +1,6 @@
-//
 //  PerfilUsuarioView.swift
 //  Restaurante
-//
-//  Created by win603 on 10/11/25.
-//
+//  Internacionalizado: inglés/español
 
 import SwiftUI
 
@@ -23,33 +20,33 @@ struct PerfilUsuarioView: View {
     
     // Diccionario de roles y tipos de turno amigables
     private let rolesAmigables: [Rol: String] = [
-        .administrador: "Administrador",
-        .gerente: "Gerente",
-        .empleado: "Empleado",
-        .cliente: "Cliente"
+        .administrador: NSLocalizedString("administrador", comment: "Administrator"),
+        .gerente: NSLocalizedString("gerente", comment: "Manager"),
+        .empleado: NSLocalizedString("empleado", comment: "Employee"),
+        .cliente: NSLocalizedString("cliente", comment: "Client")
     ]
     
     private let tiposTurnoAmigables: [String: String] = [
-        "completo": "Completo",
-        "vespertino": "Vespertino",
-        "matutino": "Matutino",
-        "nocturno": "Nocturno"
+        "completo": NSLocalizedString("turno_completo", comment: "Full shift"),
+        "vespertino": NSLocalizedString("turno_vespertino", comment: "Evening shift"),
+        "matutino": NSLocalizedString("turno_matutino", comment: "Morning shift"),
+        "nocturno": NSLocalizedString("turno_nocturno", comment: "Night shift")
     ]
     
     var body: some View {
         VStack(spacing: 20) {
-            // Encabezado
+            // 🔹 Encabezado
             VStack(spacing: 5) {
-                Text("Datos Generales del Usuario")
+                Text(NSLocalizedString("perfil_titulo", comment: "User general info title"))
                     .font(.title)
                     .bold()
-                Text("Aquí se puede visualizar la información del usuario")
+                Text(NSLocalizedString("perfil_subtitulo", comment: "Subtitle for user info"))
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
             .padding(.top)
             
-            // Imagen de perfil
+            // 🔹 Imagen de perfil
             if let imagenData = usuario.imagenData,
                let uiImage = UIImage(data: imagenData) {
                 Image(uiImage: uiImage)
@@ -62,35 +59,39 @@ struct PerfilUsuarioView: View {
                 Circle()
                     .fill(Color.gray.opacity(0.3))
                     .frame(width: 130, height: 130)
-                    .overlay(Text("Sin\nImagen").multilineTextAlignment(.center).foregroundColor(.gray))
+                    .overlay(
+                        Text(NSLocalizedString("sin_imagen", comment: "No image available"))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.gray)
+                    )
             }
             
-            // Información del usuario
+            // 🔹 Información del usuario
             VStack(alignment: .leading, spacing: 10) {
-                InfoRow(label: "Nombre", value: usuario.nombre)
-                InfoRow(label: "Email", value: usuario.email)
-                InfoRow(label: "Teléfono", value: usuario.telefono)
-                InfoRow(label: "Dirección", value: usuario.direccion)
-                InfoRow(label: "Rol", value: rolesAmigables[usuario.rol] ?? "Desconocido")
-                InfoRow(label: "Estado", value: usuario.activo ? "Activo" : "Inactivo")
-                InfoRow(label: "Fecha de Registro", value: Date.now.formatted(date: .numeric, time: .omitted))
-                InfoRow(label: "Hora de Registro", value: Date.now.formatted(date: .omitted, time: .standard))
+                InfoRow(label: NSLocalizedString("label_nombre", comment: ""), value: usuario.nombre)
+                InfoRow(label: NSLocalizedString("label_email", comment: ""), value: usuario.email)
+                InfoRow(label: NSLocalizedString("label_telefono", comment: ""), value: usuario.telefono)
+                InfoRow(label: NSLocalizedString("label_direccion", comment: ""), value: usuario.direccion)
+                InfoRow(label: NSLocalizedString("label_rol", comment: ""), value: rolesAmigables[usuario.rol] ?? "Unknown")
+                InfoRow(label: NSLocalizedString("label_estado", comment: ""), value: usuario.activo ? NSLocalizedString("estado_activo", comment: "") : NSLocalizedString("estado_inactivo", comment: ""))
+                InfoRow(label: NSLocalizedString("label_fecha_registro", comment: ""), value: Date.now.formatted(date: .numeric, time: .omitted))
+                InfoRow(label: NSLocalizedString("label_hora_registro", comment: ""), value: Date.now.formatted(date: .omitted, time: .standard))
             }
             .padding()
             .background(Color(.systemGray6))
             .cornerRadius(12)
             .padding(.horizontal)
             
-            // Horarios (solo si aplica)
+            // 🔹 Horarios de trabajo
             if !horarios.isEmpty {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Horarios de trabajo")
+                    Text(NSLocalizedString("horarios_titulo", comment: "Work schedule title"))
                         .font(.headline)
                     ForEach(horarios) { horario in
                         VStack(alignment: .leading, spacing: 5) {
-                            InfoRow(label: "Tipo de Turno", value: tiposTurnoAmigables[horario.tipoTurno] ?? horario.tipoTurno)
-                            InfoRow(label: "Hora Inicio", value: horario.horaInicio)
-                            InfoRow(label: "Hora Fin", value: horario.horaFin)
+                            InfoRow(label: NSLocalizedString("label_tipo_turno", comment: ""), value: tiposTurnoAmigables[horario.tipoTurno] ?? horario.tipoTurno)
+                            InfoRow(label: NSLocalizedString("label_hora_inicio", comment: ""), value: horario.horaInicio)
+                            InfoRow(label: NSLocalizedString("label_hora_fin", comment: ""), value: horario.horaFin)
                         }
                         Divider()
                     }
@@ -103,11 +104,9 @@ struct PerfilUsuarioView: View {
             
             Spacer()
             
-            // Botón de regresar
-            Button(action: {
-                dismiss()
-            }) {
-                Text("Regresar")
+            // 🔹 Botón regresar
+            Button(action: { dismiss() }) {
+                Text(NSLocalizedString("boton_regresar", comment: "Back button"))
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.blue)
@@ -157,3 +156,4 @@ struct PerfilUsuarioView_Previews: PreviewProvider {
         PerfilUsuarioView(usuario: usuario, horarios: horarios)
     }
 }
+

@@ -1,9 +1,3 @@
-//  AgregarMesaView.swift
-//  Restaurante
-//
-//  Created by win603 on 12/11/25.
-//
-
 import SwiftUI
 
 struct AgregarMesaView: View {
@@ -17,10 +11,10 @@ struct AgregarMesaView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Datos de la mesa") {
-                    TextField("Número de mesa", text: $numero)
+                Section(NSLocalizedString("mesa_datos_seccion", comment: "Título de la sección de datos de la mesa")) {
+                    TextField(NSLocalizedString("mesa_numero_placeholder", comment: "Placeholder del número de mesa"), text: $numero)
                         .keyboardType(.numberPad)
-                    TextField("Capacidad (personas)", text: $capacidad)
+                    TextField(NSLocalizedString("mesa_capacidad_placeholder", comment: "Placeholder de capacidad de mesa"), text: $capacidad)
                         .keyboardType(.numberPad)
                 }
                 
@@ -31,15 +25,15 @@ struct AgregarMesaView: View {
                     }
                 }
             }
-            .navigationTitle("Nueva Mesa")
+            .navigationTitle(NSLocalizedString("mesa_titulo", comment: "Título de la vista de nueva mesa"))
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Guardar") {
+                    Button(NSLocalizedString("mesa_boton_guardar", comment: "Botón Guardar")) {
                         guardarMesa()
                     }
                 }
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancelar") { dismiss() }
+                    Button(NSLocalizedString("mesa_boton_cancelar", comment: "Botón Cancelar")) { dismiss() }
                 }
             }
         }
@@ -47,16 +41,16 @@ struct AgregarMesaView: View {
     
     private func guardarMesa() {
         guard let num = Int(numero), num > 0 else {
-            mensajeError = "Número de mesa inválido."
+            mensajeError = NSLocalizedString("mesa_error_numero", comment: "Error número de mesa inválido")
             return
         }
         guard let cap = Int(capacidad), cap > 0 else {
-            mensajeError = "Capacidad inválida."
+            mensajeError = NSLocalizedString("mesa_error_capacidad", comment: "Error capacidad inválida")
             return
         }
         
         if mesas.contains(where: { $0.numero == num }) {
-            mensajeError = "Ya existe una mesa con ese número."
+            mensajeError = NSLocalizedString("mesa_error_existente", comment: "Error mesa ya existente")
             return
         }
         
@@ -66,3 +60,4 @@ struct AgregarMesaView: View {
         dismiss()
     }
 }
+

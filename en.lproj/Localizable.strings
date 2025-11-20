@@ -1,0 +1,396 @@
+/* 
+  Localizable.strings
+  Restaurante
+
+  Created by win603 on 19/11/25.
+  
+*/
+/* LandingPageView */
+"titulo_reservamesa" = "ReservaMesa";
+"subtitulo_descripcion" = "The site that allows you to register and manage your reservations easily";
+
+"mensaje_no_imagenes" = "No images were found in the assets.";
+
+"boton_politica" = "Privacy Policy";
+"boton_terminos" = "Terms of Use";
+"boton_sobre_nosotros" = "About Us";
+"boton_iniciar_sesion" = "Login";
+"boton_registrarse" = "Sign Up";
+
+"footer_derechos" = "© 2024 ReservaMesa. All rights reserved.";
+
+/* LoginView */
+"login_titulo" = "Login";
+"login_email_placeholder" = "Enter your email";
+"login_password_placeholder" = "Enter your password";
+"login_recordarme" = "Remember me";
+"login_boton" = "Login";
+
+"login_error_campos" = "All fields are required.";
+"login_error_credenciales" = "Incorrect credentials.";
+"login_error_inactivo" = "Your account is inactive. Contact the administrator.";
+
+
+/* PoliticaDePrivacidadView */
+"politica_titulo" = "Privacy Policy";
+"politica_subtitulo" = "Get information about our privacy policies";
+
+"politica_1_titulo" = "1. Information We Collect";
+"politica_1_contenido" = "We collect personal information when you register on our platform, make a reservation, or interact with our system. The information we collect may include:\n• Contact data: Name, email address, phone number.\n• Reservation information: Date, time, number of people, and details of the reserved table.\n• Comments and reviews: Information you choose to provide about your experience at the restaurant.\n• Payment information: If you make payments through our platform, we collect data related to the transaction through an external payment processor.";
+
+"politica_2_titulo" = "2. Use of Information";
+"politica_2_contenido" = "The information collected is used to:\n• Manage your reservations: Confirm, modify, or cancel your bookings.\n• Provide a better experience: Improve the service offered, manage your comments and suggestions.\n• Communicate with you: Send reservation confirmations, updates, and promotions.\n• Comply with legal obligations: Manage records and transactions according to applicable laws.";
+
+"politica_3_titulo" = "3. Information Protection";
+"politica_3_contenido" = "We implement security measures to protect your personal information, but you should be aware that no Internet data transmission is 100% secure. We use encryption protocols to protect sensitive data during transmission.";
+
+"politica_4_titulo" = "4. Sharing Information with Third Parties";
+"politica_4_contenido" = "We do not sell, rent, or share your personal information with third parties, except in the following cases:\n• Service providers: We contract third parties to process payments and manage some system functions.\n• Legal compliance: We may disclose your information if required by law or a government authority.";
+
+"politica_5_titulo" = "5. Your Information Rights";
+"politica_5_contenido" = "You have the right to:\n• Access, correct, or delete your personal information.\n• Opt out of receiving promotional or marketing communications.\n\nIf you wish to exercise these rights, contact us at marcelo.neri@iest.edu.mx.";
+
+"politica_6_titulo" = "6. Cookies and Similar Technology";
+"politica_6_contenido" = "We use cookies and similar technologies to improve your experience, personalize content, and analyze traffic. You can disable cookies in your browser, but some system features may be affected.";
+
+"politica_7_titulo" = "7. Changes to this Policy";
+"politica_7_contenido" = "We reserve the right to update or modify this privacy policy at any time. We will notify you of any important changes through a notice on the website.";
+
+"politica_footer" = "© 2024 ReservaMesa. All rights reserved.";
+
+
+/* RegistroView */
+"registro_titulo" = "Register";
+"registro_nombre_placeholder" = "Name";
+"registro_email_placeholder" = "Email";
+"registro_telefono_placeholder" = "Phone";
+"registro_direccion_placeholder" = "Address";
+"registro_password_placeholder" = "Password";
+"registro_confirmar_password_placeholder" = "Confirm Password";
+"registro_subir_imagen" = "Upload Image:";
+"registro_acepto_terminos" = "I accept the terms and conditions";
+"registro_boton" = "Register";
+"registro_error_campos" = "All fields are required and terms must be accepted.";
+"registro_error_email" = "Invalid email format.";
+"registro_error_telefono" = "Phone number must contain exactly 10 digits.";
+"registro_error_password_formato" = "Password must be at least 8 characters and include letters and numbers.";
+"registro_error_password_match" = "Passwords do not match.";
+
+
+/* SobreNosotrosView */
+"sobre_titulo_principal" = "Welcome to the ReservaMesa Reservation Management System";
+"sobre_subtitulo_principal" = "Reserve your table, check the menu, and much more.";
+
+"sobre_seccion_acerca" = "About Our Service";
+"sobre_contenido_acerca" = "The restaurant reservation management system is designed to provide an efficient and convenient experience for both users and restaurant staff. This system aims to simplify the table reservation process, menu consultation, and feedback management.";
+
+"sobre_seccion_como_funciona" = "How It Works";
+"sobre_contenido_como_funciona" = "Using our system is very easy:\n• Online Reservation: Choose the date, time, and number of people to reserve your table.\n• Menu Consultation: Browse our complete menu to see daily specials and à la carte options.\n• Manage Your Reservations: You can view, modify, or cancel your reservations at any time.\n• Leave Feedback: At the end of your experience, you can leave a comment about the food and service.";
+
+"sobre_seccion_servicios" = "Available Services";
+"sobre_contenido_servicios" = "• Online Reservations: Book your table from anywhere, anytime.\n• Interactive Menu: Check our digital menu, with images and detailed descriptions.\n• Reservation Management: Access your reservation history and make changes or cancellations easily.\n• Feedback and Ratings: Leave your comments about the service and dining options.";
+
+"sobre_seccion_contacto" = "Contact";
+"sobre_contenido_contacto" = "For any inquiries or if you need assistance, do not hesitate to contact us:\n• Email: marcelo.neri@iest.edu.mx\n• Phone: 845 103 3478\n• Address: Calle Ejemplo 123, City, Country";
+
+"sobre_footer" = "© 2024 ReservaMesa. All rights reserved.";
+
+/* TerminosDeUsoView */
+"terminos_titulo_principal" = "Terms of Use";
+"terminos_subtitulo_principal" = "Get information about the service usage conditions";
+
+"terminos_seccion_acceso" = "1. System Access";
+"terminos_contenido_acceso" = "Access to the reservation system is allowed only for people over 18 years old. By using our system, you confirm that you are of legal age.";
+
+"terminos_seccion_responsabilidad" = "2. User Responsibility";
+"terminos_contenido_responsabilidad" = "By using our reservation system, you agree to: • Provide truthful and accurate information in your registration and reservations. • Keep your account and password confidential. • Not use the system for illegal or fraudulent purposes. • Not make multiple reservations for the same event without intending to attend.";
+
+"terminos_seccion_uso" = "3. Use of the Reservation System";
+"terminos_contenido_uso" = "The reservation system is intended only for booking tables at [Restaurant Name]. Using the platform for fraudulent, invasive, or unauthorized bookings is prohibited.";
+
+"terminos_seccion_cancelacion" = "4. Cancellation and Reservation Modification Policy";
+"terminos_contenido_cancelacion" = "You can modify or cancel your reservations through the system at any time, within established limits. Cancellations within a minimum period may be subject to charges according to restaurant policies.";
+
+"terminos_seccion_comentarios" = "5. Comments and Reviews";
+"terminos_contenido_comentarios" = "Users can leave comments and reviews about their experience at the restaurant. You agree that such comments may be published on our website and used to improve our services.";
+
+"terminos_seccion_propiedad" = "6. Intellectual Property";
+"terminos_contenido_propiedad" = "All intellectual property rights of the website content belong to [Restaurant Name] or its licensors. Reproduction, distribution, or modification without prior consent is prohibited.";
+
+"terminos_seccion_exoneracion" = "7. Disclaimer";
+"terminos_contenido_exoneracion" = "The restaurant is not responsible for: • Any errors or inaccuracies in the information provided by users. • Any damage or loss arising from the use of the reservation system or website access.";
+
+"terminos_seccion_modificacion" = "8. Modification of Terms";
+"terminos_contenido_modificacion" = "We reserve the right to modify these Terms of Use at any time. Any changes will be published on this page with the update date.";
+
+"terminos_seccion_ley" = "9. Governing Law";
+"terminos_contenido_ley" = "These Terms of Use shall be governed and interpreted in accordance with the laws of the country where the restaurant operates.";
+
+"terminos_footer" = "© 2024 ReservaMesa. All rights reserved.";
+"boton_regresar" = "Back";
+
+
+
+/* Titles and subtitles */
+"admin_panel_titulo" = "Control Panel";
+"admin_panel_subtitulo" = "Select an option to manage the system";
+
+/* User information */
+"admin_nombre" = "👤 Name:";
+"admin_email" = "✉️ Email:";
+"admin_telefono" = "📞 Phone:";
+"admin_direccion" = "🏠 Address:";
+"admin_rol" = "🧩 Role:";
+"admin_estado" = "⚙️ Status:";
+"activo" = "Active";
+"inactivo" = "Inactive";
+
+/* Panel buttons */
+"admin_ver_reservas" = "📋 View Reservations and Tables";
+"admin_ver_usuarios" = "👥 View Users";
+"admin_ver_menu" = "🍽️ View Menus";
+"admin_generar_qr" = "🔳 Generate Employee QR";
+"admin_cerrar_sesion" = "🚪 Log Out";
+
+
+/* AgregarMesaView */
+"mesa_datos_seccion" = "Table Details";
+"mesa_numero_placeholder" = "Table Number";
+"mesa_capacidad_placeholder" = "Capacity (people)";
+"mesa_titulo" = "New Table";
+"mesa_boton_guardar" = "Save";
+"mesa_boton_cancelar" = "Cancel";
+"mesa_error_numero" = "Invalid table number.";
+"mesa_error_capacidad" = "Invalid capacity.";
+"mesa_error_existente" = "A table with this number already exists.";
+
+
+/* Top Bar */
+"agregar_platillo_titulo" = "Add Dish";
+
+/* Form - Information Section */
+"platillo_informacion_seccion" = "Dish Information";
+"platillo_nombre_placeholder" = "Name";
+"platillo_descripcion_placeholder" = "Description";
+"platillo_precio_placeholder" = "Price";
+"platillo_categoria_picker" = "Category";
+
+/* Form - Image Section */
+"platillo_imagen_seccion" = "Image";
+"platillo_imagen_boton" = "Select Image";
+
+/* Buttons */
+"platillo_boton_guardar" = "Save";
+"platillo_boton_cancelar" = "Cancel";
+
+
+/* Account title */
+"cuenta_titulo" = "Table %d Bill";
+
+/* Order list */
+"cuenta_total" = "TOTAL";
+"cuenta_no_pedidos" = "No orders recorded.";
+
+/* Close account button */
+"cuenta_boton_cerrar" = "Close Bill";
+
+
+/* Table title */
+"detalle_mesa_titulo" = "Table %d";
+
+/* Reservation */
+"detalle_mesa_reservada_por" = "Reserved by: %@";
+"detalle_mesa_personas" = "People: %d";
+"detalle_mesa_horario" = "Time: %@";
+"detalle_mesa_sin_reservacion" = "No reservation";
+
+/* Total */
+"detalle_mesa_cuenta_total" = "Total bill: $%.2f";
+
+/* Buttons */
+"detalle_mesa_boton_reservar" = "Reserve Table";
+"detalle_mesa_boton_ver_pedido" = "View / Edit Order";
+
+
+/* View title */
+"editar_platillo_titulo" = "Edit Dish";
+
+/* Information section */
+"editar_platillo_seccion_informacion" = "Information";
+"editar_platillo_nombre" = "Name";
+"editar_platillo_descripcion" = "Description";
+"editar_platillo_precio" = "Price";
+"editar_platillo_categoria" = "Category";
+
+/* Image section */
+"editar_platillo_seccion_imagen" = "Image";
+"editar_platillo_cambiar_imagen" = "Change Image";
+
+
+/* View title */
+"lista_mesas_titulo" = "Available Tables";
+
+/* Table status */
+"mesa_disponible" = "Available";
+"mesa_ocupada" = "Occupied";
+
+/* Table capacity */
+"mesa_capacidad" = "Capacity: %d";
+
+/* Add table button */
+"boton_agregar_mesa" = "Add Table";
+
+
+/* View title */
+"menu_pedido_titulo" = "Order Management";
+
+/* Total */
+"total" = "Total:";
+
+/* Close account button */
+"boton_cerrar_cuenta" = "Close Account";
+
+/* Back button */
+"boton_volver" = "Back";
+
+/* Close account alert */
+"alerta_cerrar_cuenta_titulo" = "Close account?";
+"alerta_cerrar_cuenta_mensaje" = "All orders will be deleted and the table will be available.";
+"alerta_cerrar_cuenta_cancelar" = "Cancel";
+"alerta_cerrar_cuenta_confirmar" = "Confirm";
+
+
+/* View title */
+"menu_titulo" = "Restaurant Menu";
+
+/* Add button */
+"boton_agregar" = "Add";
+
+/* Categories */
+"categoria_entrada" = "Appetizers";
+"categoria_fuerte" = "Main Courses";
+"categoria_postre" = "Desserts";
+"categoria_bebida" = "Drinks";
+
+/* Empty menu message */
+"menu_vacio" = "There are currently no dishes in the menu.";
+
+
+/* User header */
+"perfil_titulo" = "User General Information";
+"perfil_subtitulo" = "Here you can view the user's information";
+
+/* Labels */
+"label_nombre" = "Name";
+"label_email" = "Email";
+"label_telefono" = "Phone";
+"label_direccion" = "Address";
+"label_rol" = "Role";
+"label_estado" = "Status";
+"label_fecha_registro" = "Registration Date";
+"label_hora_registro" = "Registration Time";
+
+/* User status */
+"estado_activo" = "Active";
+"estado_inactivo" = "Inactive";
+
+/* Work schedule */
+"horarios_titulo" = "Work Schedules";
+"label_tipo_turno" = "Shift Type";
+"label_hora_inicio" = "Start Time";
+"label_hora_fin" = "End Time";
+
+/* Shift types */
+"turno_completo" = "Full";
+"turno_vespertino" = "Evening";
+"turno_matutino" = "Morning";
+"turno_nocturno" = "Night";
+
+/* Back button */
+"boton_regresar" = "Back";
+
+/* No image */
+"sin_imagen" = "No\nImage";
+
+
+/*qr*/
+"qr_titulo" = "Employee QR";
+"qr_generando" = "Generating QR...";
+"si" = "Yes";
+"no" = "No";
+
+
+/*RegistroEmpleadoView*/
+"registro_titulo" = "Employee Registration";
+"registro_subtitulo" = "Fill out the form to register a new employee";
+"campo_nombre" = "Full Name";
+"campo_email" = "Email";
+"campo_telefono" = "Phone";
+"campo_direccion" = "Address";
+"campo_puesto" = "Role";
+"puesto_administrador" = "Administrator";
+"puesto_gerente" = "Manager";
+"puesto_empleado" = "Employee";
+"puesto_cliente" = "Customer";
+"campo_contrasena" = "Password";
+"campo_confirmar_contrasena" = "Confirm Password";
+"imagen_opcional" = "Employee Image (optional):";
+"seleccionar_imagen" = "Select Image";
+"acepto_terminos" = "I accept the terms and conditions";
+"boton_cancelar" = "Cancel";
+"boton_registrar" = "Register";
+"alerta_exito_titulo" = "Successful Registration";
+"alerta_exito_mensaje" = "The employee has been successfully registered.";
+"alerta_aceptar" = "OK";
+"alerta_error_titulo" = "Error";
+"error_campos_vacios" = "All fields are required.";
+"error_email_invalido" = "Invalid email format.";
+"error_telefono" = "Phone must be exactly 10 digits.";
+"error_contrasena_no_coincide" = "Passwords do not match.";
+"error_contrasena_segura" = "Password must be at least 8 characters with letters and numbers.";
+"error_terminos" = "You must accept the terms and conditions.";
+"error_email_existente" = "The email is already registered.";
+
+
+/*ReservarMesaView*/
+"reservar_mesa_titulo" = "Reserve Table";
+"campo_nombre_cliente" = "Customer Name";
+"campo_numero_personas" = "Number of People";
+"campo_horario" = "Time";
+"boton_guardar" = "Save";
+"boton_cancelar" = "Cancel";
+
+
+/*VisualizarUsuariosView*/
+"usuarios_registrados" = "Registered Users";
+"buscar_por_nombre" = "Search by name...";
+"no_resultados" = "No results found for \"%@\".";
+"rol_administrador" = "Administrator";
+"rol_gerente" = "Manager";
+"rol_empleado" = "Employee";
+"rol_cliente" = "Customer";
+"ver_perfil" = "View Profile";
+"eliminar" = "Delete";
+"registrar_nuevo_usuario" = "Register New User";
+"alerta_eliminar_usuario" = "Do you want to delete this user?";
+"cancelar" = "Cancel";
+"confirmar_eliminar" = "Delete";
+
+
+/*Registro*/
+"registro_titulo" = "Register";
+"registro_nombre_placeholder" = "Name";
+"registro_email_placeholder" = "Email";
+"registro_telefono_placeholder" = "Phone";
+"registro_direccion_placeholder" = "Address";
+"registro_password_placeholder" = "Password";
+"registro_confirmar_password_placeholder" = "Confirm Password";
+"registro_subir_imagen" = "Upload Image";
+"registro_acepto_terminos" = "I accept the terms";
+"registro_boton" = "Sign Up";
+"registro_error_campos" = "All fields are required";
+"registro_error_email" = "Invalid email format";
+"registro_error_telefono" = "Invalid phone number";
+"registro_error_password_formato" = "Password must be at least 8 characters with letters and numbers";
+"registro_error_password_match" = "Passwords do not match";
+

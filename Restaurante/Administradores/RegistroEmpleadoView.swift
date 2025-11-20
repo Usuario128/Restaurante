@@ -1,11 +1,5 @@
-//
-//  RegistroEmpleadoView.swift
-//  Restaurante
-//
-//  Creado el 10/11/25
-//
-
 import SwiftUI
+import UIKit // << IMPORTANTE para UIImage y UIImagePickerController
 
 struct RegistroEmpleadoView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -39,13 +33,11 @@ struct RegistroEmpleadoView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-
                     campoTexto("Nombre Completo", text: $nombre)
                     campoTexto("Email", text: $email, tipo: .emailAddress)
                     campoTexto("Teléfono", text: $telefono, tipo: .numberPad)
                     campoTexto("Dirección", text: $direccion)
 
-                    // Rol (Puesto)
                     VStack(alignment: .leading) {
                         Text("Puesto:")
                             .font(.headline)
@@ -58,22 +50,28 @@ struct RegistroEmpleadoView: View {
                         .pickerStyle(SegmentedPickerStyle())
                     }
 
-                    // 🔐 Campo de contraseña sin sugerencias ni protección de texto
-                    SecureField("Contraseña", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .autocorrectionDisabled(true)
-                        .textContentType(.none)
+                    // Campo de contraseña con candado
+                    HStack {
+                        Image(systemName: "lock")
+                            .foregroundColor(.gray)
+                        SecureField("Contraseña", text: $password)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .textContentType(.none)
+                    }
 
-                    SecureField("Confirmar Contraseña", text: $confirmarPassword)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .autocorrectionDisabled(true)
-                        .textContentType(.none)
+                    // Campo de confirmación de contraseña con candado
+                    HStack {
+                        Image(systemName: "lock")
+                            .foregroundColor(.gray)
+                        SecureField("Confirmar Contraseña", text: $confirmarPassword)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .textContentType(.none)
+                    }
 
-                    // Imagen opcional
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Imagen del Empleado (opcional):")
                             .font(.headline)
@@ -90,7 +88,6 @@ struct RegistroEmpleadoView: View {
                         .buttonStyle(.bordered)
                     }
 
-                    // Términos y condiciones
                     Toggle(isOn: $aceptaTerminos) {
                         Text("Acepto los términos y condiciones")
                     }
@@ -102,17 +99,11 @@ struct RegistroEmpleadoView: View {
                             .multilineTextAlignment(.center)
                     }
 
-                    // Botones de acción
                     HStack {
-                        Button("Cancelar") {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                        .buttonStyle(.bordered)
-
-                        Button("Registrar") {
-                            registrarUsuario()
-                        }
-                        .buttonStyle(.borderedProminent)
+                        Button("Cancelar") { presentationMode.wrappedValue.dismiss() }
+                            .buttonStyle(.bordered)
+                        Button("Registrar") { registrarUsuario() }
+                            .buttonStyle(.borderedProminent)
                     }
                     .padding(.top, 10)
                 }
@@ -138,17 +129,14 @@ struct RegistroEmpleadoView: View {
         .navigationBarHidden(true)
     }
 
-    // MARK: - Componentes reutilizables
     private func campoTexto(_ titulo: String, text: Binding<String>, tipo: UIKeyboardType = .default) -> some View {
         VStack(alignment: .leading) {
-            Text(titulo)
-                .font(.headline)
-            
+            Text(titulo).font(.headline)
             TextField(titulo, text: Binding(
                 get: { text.wrappedValue },
                 set: { newValue in
                     if titulo.lowercased() == "email" {
-                        text.wrappedValue = newValue.lowercased()   // 👈 fuerza a minúsculas
+                        text.wrappedValue = newValue.lowercased()
                     } else {
                         text.wrappedValue = newValue
                     }
@@ -156,58 +144,48 @@ struct RegistroEmpleadoView: View {
             ))
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .keyboardType(tipo)
-            .autocapitalization(.none)          // evita mayúsculas automáticas
+            .autocapitalization(.none)
             .autocorrectionDisabled(true)
         }
     }
 
-    // MARK: - Lógica de validación y guardado
     private func registrarUsuario() {
-        // Validaciones
         guard !nombre.isEmpty, !email.isEmpty, !telefono.isEmpty, !direccion.isEmpty, !password.isEmpty, !confirmarPassword.isEmpty else {
             mensajeError = "Todos los campos son obligatorios."
             mostrarAlerta = true
             return
         }
-
         guard email.contains("@"), email.contains(".") else {
             mensajeError = "Formato de correo electrónico no válido."
             mostrarAlerta = true
             return
         }
-
         guard telefono.count == 10, telefono.allSatisfy(\.isNumber) else {
             mensajeError = "El teléfono debe tener exactamente 10 dígitos."
             mostrarAlerta = true
             return
         }
-
         guard password == confirmarPassword else {
             mensajeError = "Las contraseñas no coinciden."
             mostrarAlerta = true
             return
         }
-
         guard password.count >= 8, password.contains(where: \.isLetter), password.contains(where: \.isNumber) else {
             mensajeError = "La contraseña debe tener al menos 8 caracteres con letras y números."
             mostrarAlerta = true
             return
         }
-
         guard aceptaTerminos else {
             mensajeError = "Debe aceptar los términos y condiciones."
             mostrarAlerta = true
             return
         }
-
-        // Verificar duplicado
         if storage.usuarios.contains(where: { $0.email.lowercased() == email.lowercased() }) {
             mensajeError = "El correo electrónico ya está registrado."
             mostrarAlerta = true
             return
         }
 
-        // Crear objeto usuario
         let nuevoUsuario = Usuario(
             nombre: nombre,
             email: email,
@@ -229,7 +207,7 @@ struct RegistroEmpleadoView: View {
     }
 }
 
-// MARK: - Selector de Imagen
+// MARK: - ImagePicker compatible
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var imagenSeleccionada: UIImage?
 
@@ -241,20 +219,20 @@ struct ImagePicker: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
 
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
+    func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         let parent: ImagePicker
-        init(_ parent: ImagePicker) {
-            self.parent = parent
-        }
+        init(_ parent: ImagePicker) { self.parent = parent }
 
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let imagen = info[.originalImage] as? UIImage {
                 parent.imagenSeleccionada = imagen
             }
+            picker.dismiss(animated: true)
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true)
         }
     }
@@ -263,3 +241,4 @@ struct ImagePicker: UIViewControllerRepresentable {
 #Preview {
     RegistroEmpleadoView()
 }
+

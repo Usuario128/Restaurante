@@ -1,8 +1,5 @@
-//
 //  LoginView.swift
 //  Restaurante
-//
-//  Created by win603 on 07/11/25.
 //
 
 import SwiftUI
@@ -18,13 +15,16 @@ struct LoginView: View {
     @State private var navegarAdmin = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 20) {
-                Text("Iniciar Sesión")
+                
+                // Título
+                Text(NSLocalizedString("login_titulo", comment: "Título de la pantalla de login"))
                     .font(.largeTitle)
                     .bold()
                 
-                TextField("Ingresa tu email", text: $email)
+                // Campo Email
+                TextField(NSLocalizedString("login_email_placeholder", comment: "Placeholder del email"), text: $email)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
@@ -32,16 +32,19 @@ struct LoginView: View {
                     .background(Color(.systemGray6))
                     .cornerRadius(8)
                 
-                SecureField("Ingresa tu contraseña", text: $password)
+                // Campo Contraseña
+                SecureField(NSLocalizedString("login_password_placeholder", comment: "Placeholder de la contraseña"), text: $password)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(8)
                 
-                Toggle("Recordarme", isOn: $rememberMe)
+                // Recordarme
+                Toggle(NSLocalizedString("login_recordarme", comment: "Toggle Recordarme"), isOn: $rememberMe)
                     .padding(.horizontal)
                 
+                // Mensaje de error
                 if let errorMessage = errorMessage {
                     Text(errorMessage)
                         .foregroundColor(.red)
@@ -49,7 +52,8 @@ struct LoginView: View {
                         .padding()
                 }
                 
-                Button("Iniciar Sesión") {
+                // Botón Iniciar sesión
+                Button(NSLocalizedString("login_boton", comment: "Botón de iniciar sesión")) {
                     iniciarSesion()
                 }
                 .foregroundColor(.white)
@@ -62,9 +66,16 @@ struct LoginView: View {
                 Spacer()
             }
             .padding()
+            
+            // Asegura que la barra de navegación esté visible y el botón de regresar también
+            .navigationBarBackButtonHidden(false)
+            .navigationBarTitleDisplayMode(.inline)
+            
+            // Navegación a vista admin
             .fullScreenCover(isPresented: $navegarAdmin) {
                 AdministradorView()
             }
+            
             .onAppear {
                 if let emailRecordado = UserDefaults.standard.string(forKey: "usuarioRecordado"),
                    let usuario = storage.usuarios.first(where: { $0.email.lowercased() == emailRecordado.lowercased() }) {
@@ -75,30 +86,32 @@ struct LoginView: View {
         }
     }
     
+    // MARK: - Lógica del Login
     func iniciarSesion() {
         errorMessage = nil
         
         guard !email.isEmpty, !password.isEmpty else {
-            errorMessage = "Todos los campos son obligatorios."
+            errorMessage = NSLocalizedString("login_error_campos", comment: "Error campos vacíos")
             return
         }
         
         guard let usuario = storage.usuarios.first(where: { $0.email.lowercased() == email.lowercased() }) else {
-            errorMessage = "Credenciales incorrectas."
+            errorMessage = NSLocalizedString("login_error_credenciales", comment: "Error credenciales")
             return
         }
         
         if usuario.password != password {
-            errorMessage = "Credenciales incorrectas."
+            errorMessage = NSLocalizedString("login_error_credenciales", comment: "Error credenciales")
             return
         }
         
         if !usuario.activo {
-            errorMessage = "Tu cuenta está inactiva. Contacta al administrador."
+            errorMessage = NSLocalizedString("login_error_inactivo", comment: "Error cuenta inactiva")
             return
         }
         
         storage.usuarioActual = usuario
+        
         if rememberMe {
             UserDefaults.standard.set(usuario.email, forKey: "usuarioRecordado")
         }
@@ -106,3 +119,4 @@ struct LoginView: View {
         navegarAdmin = true
     }
 }
+

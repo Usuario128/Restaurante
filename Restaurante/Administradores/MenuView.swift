@@ -1,8 +1,6 @@
 //  MenuView.swift
 //  Restaurante
-//
-//  Created by win603 on 10/11/25.
-//
+//  Internacionalizado: inglés/español
 
 import SwiftUI
 
@@ -11,18 +9,18 @@ struct MenuView: View {
     @State private var mostrarAgregar = false
     
     private let categorias: [Categoria: String] = [
-        .entrada: "Entradas",
-        .fuerte: "Platos Fuertes",
-        .postre: "Postres",
-        .bebida: "Bebidas"
+        .entrada: NSLocalizedString("categoria_entrada", comment: "Appetizers"),
+        .fuerte: NSLocalizedString("categoria_fuerte", comment: "Main Courses"),
+        .postre: NSLocalizedString("categoria_postre", comment: "Desserts"),
+        .bebida: NSLocalizedString("categoria_bebida", comment: "Drinks")
     ]
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
+                    // 🔹 Mostrar platillos por categoría
                     ForEach(Categoria.allCases, id: \.self) { categoria in
-                        // Asignamos el array primero (no usar `if let` con filter)
                         let platillos = menuItems.filter { $0.categoria == categoria }
                         if !platillos.isEmpty {
                             Text(categorias[categoria] ?? "")
@@ -32,15 +30,20 @@ struct MenuView: View {
                             
                             LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 16)], spacing: 16) {
                                 ForEach(platillos) { platillo in
-                                    PlatilloCard(platillo: platillo, onDelete: eliminarPlatillo, onEdit: editarPlatillo)
+                                    PlatilloCard(
+                                        platillo: platillo,
+                                        onDelete: eliminarPlatillo,
+                                        onEdit: editarPlatillo
+                                    )
                                 }
                             }
                             .padding(.horizontal)
                         }
                     }
                     
+                    // 🔹 Menú vacío
                     if menuItems.isEmpty {
-                        Text("No hay platillos en el menú actualmente.")
+                        Text(NSLocalizedString("menu_vacio", comment: "Empty menu message"))
                             .font(.headline)
                             .foregroundColor(.gray)
                             .padding()
@@ -49,16 +52,15 @@ struct MenuView: View {
                 }
                 .padding(.vertical)
             }
-            .navigationTitle("Menú del Restaurante")
+            .navigationTitle(NSLocalizedString("menu_titulo", comment: "Menu view title"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { mostrarAgregar.toggle() }) {
-                        Label("Agregar", systemImage: "plus.circle.fill")
+                        Label(NSLocalizedString("boton_agregar", comment: "Add button"), systemImage: "plus.circle.fill")
                     }
                 }
             }
             .sheet(isPresented: $mostrarAgregar, onDismiss: {
-                // recargar por si se agregó un platillo
                 menuItems = StorageMenu.shared.obtenerMenu()
             }) {
                 AgregarPlatilloView { nuevo in
@@ -67,12 +69,12 @@ struct MenuView: View {
                 }
             }
             .onAppear {
-                // asegurar que los datos estén actualizados al mostrar la vista
                 menuItems = StorageMenu.shared.obtenerMenu()
             }
         }
     }
     
+    // 🔹 Funciones
     private func eliminarPlatillo(_ platillo: Platillo) {
         withAnimation {
             menuItems.removeAll { $0.id == platillo.id }
@@ -90,7 +92,6 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        // Añadir datos de ejemplo para la preview
         let sample = [
             Platillo(nombre: "Sopa de tortilla", descripcion: "Con pollo y aguacate", precio: 65.0, categoria: .entrada, imagenData: nil),
             Platillo(nombre: "Enchiladas verdes", descripcion: "Rellenas de pollo", precio: 120.0, categoria: .fuerte, imagenData: nil),
@@ -101,3 +102,4 @@ struct MenuView_Previews: PreviewProvider {
         return MenuView()
     }
 }
+

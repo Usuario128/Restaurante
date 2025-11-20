@@ -1,8 +1,3 @@
-//
-//  ReservarMesaView.swift
-//  Restaurante
-//
-
 import SwiftUI
 
 struct ReservarMesaView: View {
@@ -17,17 +12,17 @@ struct ReservarMesaView: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Nombre del cliente", text: $nombre)
-                TextField("Número de personas", text: $numeroPersonas)
+                TextField(NSLocalizedString("campo_nombre_cliente", comment: ""), text: $nombre)
+                TextField(NSLocalizedString("campo_numero_personas", comment: ""), text: $numeroPersonas)
                     .keyboardType(.numberPad)
-                DatePicker("Horario", selection: $fecha, displayedComponents: .hourAndMinute)
+                DatePicker(NSLocalizedString("campo_horario", comment: ""), selection: $fecha, displayedComponents: .hourAndMinute)
             }
-            .navigationTitle("Reservar mesa")
+            .navigationTitle(NSLocalizedString("reservar_mesa_titulo", comment: ""))
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Guardar") {
+                    Button(NSLocalizedString("boton_guardar", comment: "")) {
                         if let index = mesas.firstIndex(where: { $0.id == mesa.id }),
-                           let num = Int(numeroPersonas) {
+                           let num = Int(numeroPersonas), !nombre.isEmpty {
                             mesas[index].reservacion = Reservacion(nombreCliente: nombre, numeroPersonas: num, horario: fecha)
                             mesas[index].disponible = false
                             StorageMesas.shared.guardarMesas(mesas)
@@ -36,7 +31,9 @@ struct ReservarMesaView: View {
                     }
                 }
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancelar") { dismiss() }
+                    Button(NSLocalizedString("boton_cancelar", comment: "")) {
+                        dismiss()
+                    }
                 }
             }
         }

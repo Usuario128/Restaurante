@@ -1,0 +1,396 @@
+/* 
+  Localizable.strings
+  Restaurante
+
+  Created by win603 on 19/11/25.
+  
+*/
+/* LandingPageView */
+"titulo_reservamesa" = "ReservaMesa";
+"subtitulo_descripcion" = "El sitio que te permitirá registrarte y gestionar tus reservas de manera fácil";
+
+"mensaje_no_imagenes" = "No se encontraron imágenes en los assets.";
+
+"boton_politica" = "Política de Privacidad";
+"boton_terminos" = "Términos de Uso";
+"boton_sobre_nosotros" = "Sobre Nosotros";
+"boton_iniciar_sesion" = "Iniciar Sesión";
+"boton_registrarse" = "Registrarse";
+
+"footer_derechos" = "© 2024 ReservaMesa. Todos los derechos reservados.";
+
+/* LoginView */
+"login_titulo" = "Iniciar Sesión";
+"login_email_placeholder" = "Ingresa tu email";
+"login_password_placeholder" = "Ingresa tu contraseña";
+"login_recordarme" = "Recordarme";
+"login_boton" = "Iniciar Sesión";
+
+"login_error_campos" = "Todos los campos son obligatorios.";
+"login_error_credenciales" = "Credenciales incorrectas.";
+"login_error_inactivo" = "Tu cuenta está inactiva. Contacta al administrador.";
+
+
+/* PoliticaDePrivacidadView */
+"politica_titulo" = "Políticas de Privacidad";
+"politica_subtitulo" = "Obtenga la información sobre nuestras políticas de privacidad";
+
+"politica_1_titulo" = "1. Información que Recopilamos";
+"politica_1_contenido" = "Recopilamos información personal cuando te registras en nuestra plataforma, realizas una reserva o interactúas con nuestro sistema. La información que recopilamos puede incluir:\n• Datos de contacto: Nombre, dirección de correo electrónico, número de teléfono.\n• Información de la reserva: Fecha, hora, número de personas y detalles de la mesa reservada.\n• Comentarios y valoraciones: Información que decides proporcionarnos sobre tu experiencia en el restaurante.\n• Información de pago: Si realizas pagos a través de nuestra plataforma, recopilamos la información relacionada con la transacción a través de un procesador de pagos externo.";
+
+"politica_2_titulo" = "2. Uso de la Información";
+"politica_2_contenido" = "La información recopilada se utiliza para:\n• Gestionar tus reservas: Confirmar, modificar o cancelar tus reservas.\n• Proporcionar una mejor experiencia: Mejorar el servicio ofrecido, gestionar tus comentarios y sugerencias.\n• Comunicarnos contigo: Enviar confirmaciones de reservas, actualizaciones y promociones.\n• Cumplir con las obligaciones legales: Gestionar registros y transacciones según las leyes aplicables.";
+
+"politica_3_titulo" = "3. Protección de la Información";
+"politica_3_contenido" = "Implementamos medidas de seguridad para proteger tu información personal, pero debes tener en cuenta que ninguna transmisión de datos por Internet es 100% segura. Utilizamos protocolos de cifrado para proteger los datos sensibles durante la transmisión.";
+
+"politica_4_titulo" = "4. Compartir Información con Terceros";
+"politica_4_contenido" = "No vendemos, alquilamos ni compartimos tu información personal con terceros, excepto en los siguientes casos:\n• Proveedores de servicios: Contratamos a terceros para procesar pagos y gestionar algunas funciones del sistema.\n• Cumplimiento legal: Podemos divulgar tu información si así lo requiere la ley o una autoridad gubernamental.";
+
+"politica_5_titulo" = "5. Derechos sobre tu Información";
+"politica_5_contenido" = "Tienes derecho a:\n• Acceder, corregir o eliminar tu información personal.\n• Optar por no recibir comunicaciones promocionales o de marketing.\n\nSi deseas ejercer estos derechos, contáctanos a través de marcelo.neri@iest.edu.mx.";
+
+"politica_6_titulo" = "6. Cookies y Tecnología Similar";
+"politica_6_contenido" = "Utilizamos cookies y tecnologías similares para mejorar tu experiencia, personalizar el contenido y analizar el tráfico. Puedes desactivar las cookies en tu navegador, pero algunas funcionalidades del sistema pueden verse afectadas.";
+
+"politica_7_titulo" = "7. Cambios en esta Política";
+"politica_7_contenido" = "Nos reservamos el derecho de actualizar o modificar esta política de privacidad en cualquier momento. Te notificaremos sobre cualquier cambio importante mediante un aviso en el sitio web.";
+
+"politica_footer" = "© 2024 ReservaMesa. Todos los derechos reservados.";
+
+
+/* RegistroView */
+"registro_titulo" = "Registro";
+"registro_nombre_placeholder" = "Nombre";
+"registro_email_placeholder" = "Email";
+"registro_telefono_placeholder" = "Teléfono";
+"registro_direccion_placeholder" = "Dirección";
+"registro_password_placeholder" = "Contraseña";
+"registro_confirmar_password_placeholder" = "Confirmar Contraseña";
+"registro_subir_imagen" = "Subir Imagen:";
+"registro_acepto_terminos" = "Acepto los términos y condiciones";
+"registro_boton" = "Registrarme";
+"registro_error_campos" = "Todos los campos son obligatorios y debe aceptar los términos.";
+"registro_error_email" = "Formato de email no válido.";
+"registro_error_telefono" = "El teléfono debe contener exactamente 10 dígitos.";
+"registro_error_password_formato" = "La contraseña debe tener al menos 8 caracteres, incluir letras y números.";
+"registro_error_password_match" = "Las contraseñas no coinciden.";
+
+
+/* SobreNosotrosView */
+"sobre_titulo_principal" = "Bienvenido al Sistema de Gestión de Reservas ReservaMesa";
+"sobre_subtitulo_principal" = "Reserva tu mesa, consulta el menú y mucho más.";
+
+"sobre_seccion_acerca" = "Acerca de Nuestro Servicio";
+"sobre_contenido_acerca" = "El sistema de gestión de reservas para el restaurante está diseñado para ofrecer una experiencia eficiente y conveniente tanto para los usuarios como para el personal del restaurante. A través de este sistema, se busca facilitar el proceso de reserva de mesas, consulta del menú y gestión de comentarios.";
+
+"sobre_seccion_como_funciona" = "¿Cómo Funciona?";
+"sobre_contenido_como_funciona" = "Usar nuestro sistema es muy sencillo:\n• Reserva en línea: Escoge la fecha, hora y número de personas para reservar tu mesa.\n• Consulta el Menú: Navega por nuestro menú completo para ver nuestras especialidades del día y opciones a la carta.\n• Gestiona tus reservas: Puedes ver, modificar o cancelar tus reservas en cualquier momento.\n• Deja comentarios: Al finalizar tu experiencia, puedes dejar un comentario sobre la comida y el servicio.";
+
+"sobre_seccion_servicios" = "Servicios Disponibles";
+"sobre_contenido_servicios" = "• Reservas en línea: Reserva tu mesa desde cualquier lugar, en cualquier momento.\n• Menú Interactivo: Consulta nuestro menú digital, con imágenes y descripciones detalladas.\n• Gestión de Reservas: Accede a tu historial de reservas y realiza cambios o cancelaciones fácilmente.\n• Comentarios y Valoraciones: Deja tus comentarios sobre el servicio y las opciones gastronómicas.";
+
+"sobre_seccion_contacto" = "Contacto";
+"sobre_contenido_contacto" = "Para cualquier consulta o si necesitas asistencia, no dudes en contactarnos:\n• Correo Electrónico: marcelo.neri@iest.edu.mx\n• Teléfono: 845 103 3478\n• Dirección: Calle Ejemplo 123, Ciudad, País";
+
+"sobre_footer" = "© 2024 ReservaMesa. Todos los derechos reservados.";
+
+/* TerminosDeUsoView */
+"terminos_titulo_principal" = "Términos de Uso";
+"terminos_subtitulo_principal" = "Obtenga la información sobre las condiciones por el uso del servicio";
+
+"terminos_seccion_acceso" = "1. Acceso al Sistema";
+"terminos_contenido_acceso" = "El acceso al sistema de reservas está permitido exclusivamente para personas mayores de 18 años. Al utilizar nuestro sistema, confirmas que tienes la edad legal para hacerlo.";
+
+"terminos_seccion_responsabilidad" = "2. Responsabilidad del Usuario";
+"terminos_contenido_responsabilidad" = "Al utilizar nuestro sistema de reservas, te comprometes a: • Proporcionar información veraz y precisa en tu registro y reservas. • Mantener la confidencialidad de tu cuenta de usuario y contraseña. • No utilizar el sistema para fines ilegales o fraudulentos. • No realizar reservas múltiples para el mismo evento sin la intención de asistir.";
+
+"terminos_seccion_uso" = "3. Uso del Sistema de Reservas";
+"terminos_contenido_uso" = "El sistema de reservas está destinado únicamente para realizar reservas de mesas en [Nombre del Restaurante]. No está permitido utilizar la plataforma para realizar reservas fraudulentas, invasivas o no autorizadas.";
+
+"terminos_seccion_cancelacion" = "4. Política de Cancelación y Modificación de Reservas";
+"terminos_contenido_cancelacion" = "Puedes modificar o cancelar tus reservas a través del sistema en cualquier momento, dentro de los límites establecidos. Las reservas canceladas dentro de un plazo mínimo pueden estar sujetas a cargos, según las políticas del restaurante.";
+
+"terminos_seccion_comentarios" = "5. Comentarios y Valoraciones";
+"terminos_contenido_comentarios" = "Los usuarios pueden dejar comentarios y valoraciones sobre su experiencia en el restaurante. Aceptas que dichos comentarios pueden ser publicados en nuestro sitio web y ser utilizados para mejorar nuestros servicios.";
+
+"terminos_seccion_propiedad" = "6. Propiedad Intelectual";
+"terminos_contenido_propiedad" = "Todos los derechos de propiedad intelectual sobre el contenido del sitio web son propiedad de [Nombre del Restaurante] o de sus licenciantes. Queda prohibida la reproducción, distribución o modificación de dicho contenido sin consentimiento previo.";
+
+"terminos_seccion_exoneracion" = "7. Exoneración de Responsabilidad";
+"terminos_contenido_exoneracion" = "El restaurante no se hace responsable de: • Cualquier error o inexactitud en la información proporcionada por los usuarios. • Cualquier daño o pérdida derivada del uso del sistema de reservas o del acceso al sitio web.";
+
+"terminos_seccion_modificacion" = "8. Modificación de los Términos";
+"terminos_contenido_modificacion" = "Nos reservamos el derecho de modificar estos Términos de Uso en cualquier momento. Cualquier cambio será publicado en esta página con la fecha de actualización.";
+
+"terminos_seccion_ley" = "9. Ley Aplicable";
+"terminos_contenido_ley" = "Estos Términos de Uso se regirán e interpretarán de acuerdo con las leyes del país en el que opera el restaurante.";
+
+"terminos_footer" = "© 2024 ReservaMesa. Todos los derechos reservados.";
+"boton_regresar" = "Regresar";
+
+
+
+/* Títulos y subtítulos */
+"admin_panel_titulo" = "Panel de Control";
+"admin_panel_subtitulo" = "Selecciona una opción para gestionar el sistema";
+
+/* Información del usuario */
+"admin_nombre" = "👤 Nombre:";
+"admin_email" = "✉️ Email:";
+"admin_telefono" = "📞 Teléfono:";
+"admin_direccion" = "🏠 Dirección:";
+"admin_rol" = "🧩 Rol:";
+"admin_estado" = "⚙️ Estado:";
+"activo" = "Activo";
+"inactivo" = "Inactivo";
+
+/* Botones del panel */
+"admin_ver_reservas" = "📋 Visualizar Reservas y Mesas";
+"admin_ver_usuarios" = "👥 Visualizar Usuarios";
+"admin_ver_menu" = "🍽️ Visualizar Menús";
+"admin_generar_qr" = "🔳 Generar QR del Empleado";
+"admin_cerrar_sesion" = "🚪 Cerrar Sesión";
+
+
+/* AgregarMesaView */
+"mesa_datos_seccion" = "Datos de la mesa";
+"mesa_numero_placeholder" = "Número de mesa";
+"mesa_capacidad_placeholder" = "Capacidad (personas)";
+"mesa_titulo" = "Nueva Mesa";
+"mesa_boton_guardar" = "Guardar";
+"mesa_boton_cancelar" = "Cancelar";
+"mesa_error_numero" = "Número de mesa inválido.";
+"mesa_error_capacidad" = "Capacidad inválida.";
+"mesa_error_existente" = "Ya existe una mesa con ese número.";
+
+
+/* Barra superior / Top Bar */
+"agregar_platillo_titulo" = "Agregar Platillo";
+
+/* Formulario - Sección Información */
+"platillo_informacion_seccion" = "Información del platillo";
+"platillo_nombre_placeholder" = "Nombre";
+"platillo_descripcion_placeholder" = "Descripción";
+"platillo_precio_placeholder" = "Precio";
+"platillo_categoria_picker" = "Categoría";
+
+/* Formulario - Sección Imagen */
+"platillo_imagen_seccion" = "Imagen";
+"platillo_imagen_boton" = "Seleccionar imagen";
+
+/* Botones */
+"platillo_boton_guardar" = "Guardar";
+"platillo_boton_cancelar" = "Cancelar";
+
+
+/* Título de la cuenta / Account title */
+"cuenta_titulo" = "Cuenta Mesa %d";
+
+/* Lista de pedidos / Order list */
+"cuenta_total" = "TOTAL";
+"cuenta_no_pedidos" = "No hay pedidos registrados.";
+
+/* Botón cerrar cuenta / Close account button */
+"cuenta_boton_cerrar" = "Cerrar cuenta";
+
+
+/* Título de la mesa / Table title */
+"detalle_mesa_titulo" = "Mesa %d";
+
+/* Reservación / Reservation */
+"detalle_mesa_reservada_por" = "Reservada por: %@";
+"detalle_mesa_personas" = "Personas: %d";
+"detalle_mesa_horario" = "Horario: %@";
+"detalle_mesa_sin_reservacion" = "Sin reservación";
+
+/* Cuenta / Total */
+"detalle_mesa_cuenta_total" = "Cuenta total: $%.2f";
+
+/* Botones / Buttons */
+"detalle_mesa_boton_reservar" = "Reservar mesa";
+"detalle_mesa_boton_ver_pedido" = "Ver / Editar Pedido";
+
+
+/* Título de la vista / View title */
+"editar_platillo_titulo" = "Editar Platillo";
+
+/* Sección de información / Information section */
+"editar_platillo_seccion_informacion" = "Información";
+"editar_platillo_nombre" = "Nombre";
+"editar_platillo_descripcion" = "Descripción";
+"editar_platillo_precio" = "Precio";
+"editar_platillo_categoria" = "Categoría";
+
+/* Sección de imagen / Image section */
+"editar_platillo_seccion_imagen" = "Imagen";
+"editar_platillo_cambiar_imagen" = "Cambiar imagen";
+
+
+/* Título de la vista / View title */
+"lista_mesas_titulo" = "Mesas disponibles";
+
+/* Estado de la mesa / Table status */
+"mesa_disponible" = "Disponible";
+"mesa_ocupada" = "Ocupada";
+
+/* Capacidad de la mesa / Table capacity */
+"mesa_capacidad" = "Capacidad: %d";
+
+/* Botón agregar mesa / Add table button */
+"boton_agregar_mesa" = "Agregar Mesa";
+
+
+/* Título de la vista */
+"menu_pedido_titulo" = "Gestión de Pedido";
+
+/* Total */
+"total" = "Total:";
+
+/* Botón cerrar cuenta */
+"boton_cerrar_cuenta" = "Cerrar cuenta";
+
+/* Botón volver */
+"boton_volver" = "Volver";
+
+/* Alerta de cerrar cuenta */
+"alerta_cerrar_cuenta_titulo" = "¿Cerrar cuenta?";
+"alerta_cerrar_cuenta_mensaje" = "Se eliminarán todos los pedidos y la mesa quedará disponible.";
+"alerta_cerrar_cuenta_cancelar" = "Cancelar";
+"alerta_cerrar_cuenta_confirmar" = "Confirmar";
+
+
+/* Título de la vista */
+"menu_titulo" = "Menú del Restaurante";
+
+/* Botón Agregar */
+"boton_agregar" = "Agregar";
+
+/* Categorías */
+"categoria_entrada" = "Entradas";
+"categoria_fuerte" = "Platos Fuertes";
+"categoria_postre" = "Postres";
+"categoria_bebida" = "Bebidas";
+
+/* Mensaje menú vacío */
+"menu_vacio" = "No hay platillos en el menú actualmente.";
+
+
+/* Encabezado de usuario */
+"perfil_titulo" = "Datos Generales del Usuario";
+"perfil_subtitulo" = "Aquí se puede visualizar la información del usuario";
+
+/* Labels de información */
+"label_nombre" = "Nombre";
+"label_email" = "Email";
+"label_telefono" = "Teléfono";
+"label_direccion" = "Dirección";
+"label_rol" = "Rol";
+"label_estado" = "Estado";
+"label_fecha_registro" = "Fecha de Registro";
+"label_hora_registro" = "Hora de Registro";
+
+/* Estado usuario */
+"estado_activo" = "Activo";
+"estado_inactivo" = "Inactivo";
+
+/* Horarios */
+"horarios_titulo" = "Horarios de trabajo";
+"label_tipo_turno" = "Tipo de Turno";
+"label_hora_inicio" = "Hora Inicio";
+"label_hora_fin" = "Hora Fin";
+
+/* Tipos de turno */
+"turno_completo" = "Completo";
+"turno_vespertino" = "Vespertino";
+"turno_matutino" = "Matutino";
+"turno_nocturno" = "Nocturno";
+
+/* Botón regresar */
+"boton_regresar" = "Regresar";
+
+/* Imagen no disponible */
+"sin_imagen" = "Sin\nImagen";
+
+
+/*qr*/
+"qr_titulo" = "QR del Empleado";
+"qr_generando" = "Generando QR...";
+"si" = "Sí";
+"no" = "No";
+
+
+/*RegistroEmpleadoView*/
+"registro_titulo" = "Registro de Empleados";
+"registro_subtitulo" = "Complete el formulario para registrar un nuevo empleado";
+"campo_nombre" = "Nombre Completo";
+"campo_email" = "Email";
+"campo_telefono" = "Teléfono";
+"campo_direccion" = "Dirección";
+"campo_puesto" = "Puesto";
+"puesto_administrador" = "Administrador";
+"puesto_gerente" = "Gerente";
+"puesto_empleado" = "Empleado";
+"puesto_cliente" = "Cliente";
+"campo_contrasena" = "Contraseña";
+"campo_confirmar_contrasena" = "Confirmar Contraseña";
+"imagen_opcional" = "Imagen del Empleado (opcional):";
+"seleccionar_imagen" = "Seleccionar Imagen";
+"acepto_terminos" = "Acepto los términos y condiciones";
+"boton_cancelar" = "Cancelar";
+"boton_registrar" = "Registrar";
+"alerta_exito_titulo" = "Registro Exitoso";
+"alerta_exito_mensaje" = "El empleado fue registrado correctamente.";
+"alerta_aceptar" = "Aceptar";
+"alerta_error_titulo" = "Error";
+"error_campos_vacios" = "Todos los campos son obligatorios.";
+"error_email_invalido" = "Formato de correo electrónico no válido.";
+"error_telefono" = "El teléfono debe tener exactamente 10 dígitos.";
+"error_contrasena_no_coincide" = "Las contraseñas no coinciden.";
+"error_contrasena_segura" = "La contraseña debe tener al menos 8 caracteres con letras y números.";
+"error_terminos" = "Debe aceptar los términos y condiciones.";
+"error_email_existente" = "El correo electrónico ya está registrado.";
+
+
+/*ReservarMesaView*/
+"reservar_mesa_titulo" = "Reservar mesa";
+"campo_nombre_cliente" = "Nombre del cliente";
+"campo_numero_personas" = "Número de personas";
+"campo_horario" = "Horario";
+"boton_guardar" = "Guardar";
+"boton_cancelar" = "Cancelar";
+
+
+/*VisualizarUsuariosView*/
+"usuarios_registrados" = "Usuarios Registrados";
+"buscar_por_nombre" = "Buscar por nombre...";
+"no_resultados" = "No se encontraron resultados para \"%@\".";
+"rol_administrador" = "Administrador";
+"rol_gerente" = "Gerente";
+"rol_empleado" = "Empleado";
+"rol_cliente" = "Cliente";
+"ver_perfil" = "Ver Perfil";
+"eliminar" = "Eliminar";
+"registrar_nuevo_usuario" = "Registrar Nuevo Usuario";
+"alerta_eliminar_usuario" = "¿Deseas eliminar este usuario?";
+"cancelar" = "Cancelar";
+"confirmar_eliminar" = "Eliminar";
+
+
+/*Registro*/
+"registro_titulo" = "Registro";
+"registro_nombre_placeholder" = "Nombre";
+"registro_email_placeholder" = "Correo electrónico";
+"registro_telefono_placeholder" = "Teléfono";
+"registro_direccion_placeholder" = "Dirección";
+"registro_password_placeholder" = "Contraseña";
+"registro_confirmar_password_placeholder" = "Confirmar contraseña";
+"registro_subir_imagen" = "Subir imagen";
+"registro_acepto_terminos" = "Acepto los términos";
+"registro_boton" = "Registrarse";
+"registro_error_campos" = "Todos los campos son obligatorios";
+"registro_error_email" = "Correo electrónico no válido";
+"registro_error_telefono" = "Teléfono inválido";
+"registro_error_password_formato" = "La contraseña debe tener al menos 8 caracteres, letras y números";
+"registro_error_password_match" = "Las contraseñas no coinciden";
+

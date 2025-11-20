@@ -1,9 +1,5 @@
-//
 //  CuentaView.swift
 //  Restaurante
-//
-//  Created by win603 on 12/11/25.
-//
 
 import SwiftUI
 
@@ -14,10 +10,12 @@ struct CuentaView: View {
     
     var body: some View {
         VStack {
-            Text("Cuenta Mesa \(mesa.numero)")
+            // ✅ Título de la mesa / Table title
+            Text(String(format: NSLocalizedString("cuenta_titulo", comment: "Table account title"), mesa.numero))
                 .font(.largeTitle)
                 .padding(.top)
             
+            // ✅ Lista de pedidos / Orders list
             if let pedidos = mesas.first(where: { $0.id == mesa.id })?.pedidos, !pedidos.isEmpty {
                 List {
                     ForEach(pedidos) { platillo in
@@ -30,7 +28,7 @@ struct CuentaView: View {
                     }
                     
                     HStack {
-                        Text("TOTAL")
+                        Text(NSLocalizedString("cuenta_total", comment: "Total label"))
                             .font(.title2)
                         Spacer()
                         Text(String(format: "$%.2f", mesa.totalCuenta))
@@ -39,12 +37,14 @@ struct CuentaView: View {
                     }
                 }
             } else {
-                Text("No hay pedidos registrados.")
+                Text(NSLocalizedString("cuenta_no_pedidos", comment: "No orders text"))
                     .foregroundColor(.secondary)
             }
             
             Spacer()
-            Button("Cerrar cuenta") {
+            
+            // ✅ Botón cerrar cuenta / Close bill button
+            Button(NSLocalizedString("cuenta_boton_cerrar", comment: "Close account button")) {
                 if let index = mesas.firstIndex(where: { $0.id == mesa.id }) {
                     mesas[index].pedidos.removeAll()
                     mesas[index].reservacion = nil
@@ -59,3 +59,4 @@ struct CuentaView: View {
         .padding()
     }
 }
+

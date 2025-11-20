@@ -16,9 +16,11 @@ struct RegistroView: View {
     @State private var mostrarImagePicker = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
+                    
+                    // Título
                     Text("Registro")
                         .font(.largeTitle)
                         .bold()
@@ -28,7 +30,7 @@ struct RegistroView: View {
                             .textInputAutocapitalization(.never)
                             .disableAutocorrection(true)
                         
-                        TextField("Email", text: $email)
+                        TextField("Correo electrónico", text: $email)
                             .keyboardType(.emailAddress)
                             .textInputAutocapitalization(.never)
                             .disableAutocorrection(true)
@@ -46,22 +48,35 @@ struct RegistroView: View {
                     .background(Color(.systemGray6))
                     .cornerRadius(8)
                     
-                    SecureField("Contraseña", text: $password)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                    
-                    SecureField("Confirmar Contraseña", text: $confirmarPassword)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                    
+                    // Contraseña
                     HStack {
-                        Text("Subir Imagen:")
+                        Image(systemName: "lock")
+                            .foregroundColor(.gray)
+                        SecureField("Contraseña", text: $password)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                            .textContentType(.password)
+                    }
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+                    
+                    // Confirmar contraseña
+                    HStack {
+                        Image(systemName: "lock")
+                            .foregroundColor(.gray)
+                        SecureField("Confirmar contraseña", text: $confirmarPassword)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                            .textContentType(.password)
+                    }
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+                    
+                    // Imagen de perfil
+                    HStack {
+                        Text("Subir imagen")
                         Spacer()
                         Button(action: { mostrarImagePicker = true }) {
                             if let imagen = imagen {
@@ -76,7 +91,7 @@ struct RegistroView: View {
                     }
                     .padding(.horizontal)
                     
-                    Toggle("Acepto los términos y condiciones", isOn: $termsAccepted)
+                    Toggle("Acepto los términos", isOn: $termsAccepted)
                         .padding(.horizontal)
                     
                     if let errorMessage = errorMessage {
@@ -86,7 +101,7 @@ struct RegistroView: View {
                             .padding()
                     }
                     
-                    Button("Registrarme") {
+                    Button("Registrarse") {
                         registrarUsuario()
                     }
                     .foregroundColor(.white)
@@ -98,7 +113,8 @@ struct RegistroView: View {
                 }
                 .padding()
             }
-            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(false)
+            .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $mostrarImagePicker) {
                 ImagePicker(imagenSeleccionada: $imagen)
             }
@@ -110,25 +126,29 @@ struct RegistroView: View {
         
         guard !nombre.isEmpty, !email.isEmpty, !telefono.isEmpty, !direccion.isEmpty,
               !password.isEmpty, !confirmarPassword.isEmpty, termsAccepted else {
-            errorMessage = "Todos los campos son obligatorios y debe aceptar los términos."
+            errorMessage = "Todos los campos son obligatorios"
             return
         }
+        
         guard email.contains("@") else {
-            errorMessage = "Formato de email no válido."
+            errorMessage = "Correo electrónico no válido"
             return
         }
+        
         guard telefono.count == 10, Int(telefono) != nil else {
-            errorMessage = "El teléfono debe contener exactamente 10 dígitos."
+            errorMessage = "Teléfono inválido"
             return
         }
+        
         guard password.count >= 8,
               password.rangeOfCharacter(from: .letters) != nil,
               password.rangeOfCharacter(from: .decimalDigits) != nil else {
-            errorMessage = "La contraseña debe tener al menos 8 caracteres, incluir letras y números."
+            errorMessage = "La contraseña debe tener al menos 8 caracteres, letras y números"
             return
         }
+        
         guard password == confirmarPassword else {
-            errorMessage = "Las contraseñas no coinciden."
+            errorMessage = "Las contraseñas no coinciden"
             return
         }
         

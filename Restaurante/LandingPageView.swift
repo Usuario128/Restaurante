@@ -2,29 +2,25 @@
 //  LandingPageView.swift
 //  Restaurante
 //
-//  Created by win603 on 07/11/25.
-//
 
 import SwiftUI
 
 struct LandingPageView: View {
-    // Cargar automáticamente todas las imágenes del proyecto con prefijo "f"
     @State private var imagenes: [String] = []
     @State private var indiceActual = 0
     @State private var temporizadorActivo = true
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 20) {
                 
                 // Encabezado
                 VStack(alignment: .center, spacing: 8) {
-                    Text("ReservaMesa")
+                    Text(NSLocalizedString("titulo_reservamesa", comment: ""))
                         .font(.largeTitle)
                         .bold()
                     
-                    // Texto combinado en una sola línea adaptable
-                    Text("El sitio que te permitirá registrarte y gestionar tus reservas de manera fácil")
+                    Text(NSLocalizedString("subtitulo_descripcion", comment: ""))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
@@ -54,8 +50,7 @@ struct LandingPageView: View {
                         startAutoScroll()
                     }
                 } else {
-                    // Mensaje en caso de no encontrar imágenes
-                    Text("No se encontraron imágenes en los assets.")
+                    Text(NSLocalizedString("mensaje_no_imagenes", comment: ""))
                         .foregroundColor(.secondary)
                         .padding()
                 }
@@ -63,19 +58,34 @@ struct LandingPageView: View {
                 // Navegación de botones
                 VStack(spacing: 12) {
                     NavigationLink(destination: PoliticaDePrivacidadView()) {
-                        BotonNavegacion(titulo: "Política de Privacidad", color: .green)
+                        BotonNavegacion(
+                            titulo: NSLocalizedString("boton_politica", comment: ""),
+                            color: .green
+                        )
                     }
                     NavigationLink(destination: TerminosDeUsoView()) {
-                        BotonNavegacion(titulo: "Términos de Uso", color: .orange)
+                        BotonNavegacion(
+                            titulo: NSLocalizedString("boton_terminos", comment: ""),
+                            color: .orange
+                        )
                     }
                     NavigationLink(destination: SobreNosotrosView()) {
-                        BotonNavegacion(titulo: "Sobre Nosotros", color: .purple)
+                        BotonNavegacion(
+                            titulo: NSLocalizedString("boton_sobre_nosotros", comment: ""),
+                            color: .purple
+                        )
                     }
                     NavigationLink(destination: LoginView()) {
-                        BotonNavegacion(titulo: "Iniciar Sesión", color: .pink)
+                        BotonNavegacion(
+                            titulo: NSLocalizedString("boton_iniciar_sesion", comment: ""),
+                            color: .pink
+                        )
                     }
                     NavigationLink(destination: RegistroView()) {
-                        BotonNavegacion(titulo: "Registrarse", color: .teal)
+                        BotonNavegacion(
+                            titulo: NSLocalizedString("boton_registrarse", comment: ""),
+                            color: .teal
+                        )
                     }
                 }
                 .padding(.horizontal, 30)
@@ -86,31 +96,29 @@ struct LandingPageView: View {
                 // Footer
                 VStack {
                     Divider()
-                    Text("© 2024 ReservaMesa. Todos los derechos reservados.")
+                    Text(NSLocalizedString("footer_derechos", comment: ""))
                         .font(.footnote)
                         .foregroundColor(.secondary)
                         .padding(.bottom, 10)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)    // ← OCULTA LA BARRA DE NAVEGACIÓN
             .onAppear {
                 cargarImagenesLocales()
             }
         }
     }
     
-    // MARK: - Función para cargar automáticamente las imágenes desde los Assets
+    // MARK: - Cargar imágenes locales automáticamente
     func cargarImagenesLocales() {
         var nombres: [String] = []
         var index = 1
-        
-        // Intenta cargar imágenes con nombres f1, f2, f3... hasta que no encuentre más
+
         while UIImage(named: "f\(index)") != nil {
             nombres.append("f\(index)")
             index += 1
         }
         
-        // Si no hay ninguna con el formato f1, f2..., busca otras por fallback (opcional)
         if nombres.isEmpty {
             let posibles = ["imagen1", "imagen2", "foto1", "foto2"]
             for nombre in posibles where UIImage(named: nombre) != nil {
@@ -121,7 +129,6 @@ struct LandingPageView: View {
         self.imagenes = nombres
     }
 
-    
     // MARK: - Carrusel automático
     func startAutoScroll() {
         Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { _ in
@@ -151,8 +158,7 @@ struct BotonNavegacion: View {
     }
 }
 
-
-
 #Preview {
     LandingPageView()
 }
+

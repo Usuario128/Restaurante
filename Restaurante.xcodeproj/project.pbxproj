@@ -6,7 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		352098FB2ECE8FDE00F74AFA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 352098F92ECE8FDE00F74AFA /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		352098FA2ECE8FDE00F74AFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		352098FC2ECE8FEE00F74AFA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		35F8E9582EBEBD1E0058E2FF /* Restaurante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurante.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +38,7 @@
 		35F8E94F2EBEBD1E0058E2FF = {
 			isa = PBXGroup;
 			children = (
+				352098F92ECE8FDE00F74AFA /* Localizable.strings */,
 				35F8E95A2EBEBD1E0058E2FF /* Restaurante */,
 				35F8E9592EBEBD1E0058E2FF /* Products */,
 			);
@@ -91,6 +98,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 35F8E94F2EBEBD1E0058E2FF;
 			minimizedProjectReferenceProxies = 1;
@@ -109,6 +117,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352098FB2ECE8FDE00F74AFA /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +132,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		352098F92ECE8FDE00F74AFA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				352098FA2ECE8FDE00F74AFA /* en */,
+				352098FC2ECE8FEE00F74AFA /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		35F8E9612EBEBD200058E2FF /* Debug */ = {

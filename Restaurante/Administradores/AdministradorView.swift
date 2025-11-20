@@ -18,11 +18,11 @@ struct AdministradorView: View {
                 VStack(spacing: 25) {
                     
                     // Encabezado
-                    Text("Panel de Control")
+                    Text(NSLocalizedString("admin_panel_titulo", comment: "Panel de control"))
                         .font(.largeTitle.bold())
                         .padding(.top)
                     
-                    Text("Selecciona una opción para gestionar el sistema")
+                    Text(NSLocalizedString("admin_panel_subtitulo", comment: "Selecciona una opción"))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
@@ -54,12 +54,12 @@ struct AdministradorView: View {
                     
                     // INFORMACIÓN DEL USUARIO
                     VStack(alignment: .leading, spacing: 10) {
-                        HStack { Text("👤 Nombre:").bold(); Text(usuario?.nombre ?? "—") }
-                        HStack { Text("✉️ Email:").bold(); Text(usuario?.email ?? "—") }
-                        HStack { Text("📞 Teléfono:").bold(); Text(usuario?.telefono ?? "—") }
-                        HStack { Text("🏠 Dirección:").bold(); Text(usuario?.direccion ?? "—") }
-                        HStack { Text("🧩 Rol:").bold(); Text(usuario?.rol.rawValue.capitalized ?? "—") }
-                        HStack { Text("⚙️ Estado:").bold(); Text(usuario?.activo == true ? "Activo" : "Inactivo") }
+                        HStack { Text(NSLocalizedString("admin_nombre", comment: "Nombre:")).bold(); Text(usuario?.nombre ?? "—") }
+                        HStack { Text(NSLocalizedString("admin_email", comment: "Email:")).bold(); Text(usuario?.email ?? "—") }
+                        HStack { Text(NSLocalizedString("admin_telefono", comment: "Teléfono:")).bold(); Text(usuario?.telefono ?? "—") }
+                        HStack { Text(NSLocalizedString("admin_direccion", comment: "Dirección:")).bold(); Text(usuario?.direccion ?? "—") }
+                        HStack { Text(NSLocalizedString("admin_rol", comment: "Rol:")).bold(); Text(usuario?.rol.rawValue.capitalized ?? "—") }
+                        HStack { Text(NSLocalizedString("admin_estado", comment: "Estado:")).bold(); Text(usuario?.activo == true ? NSLocalizedString("activo", comment: "Activo") : NSLocalizedString("inactivo", comment: "Inactivo")) }
                     }
                     .padding()
                     .background(Color(.systemGray6))
@@ -70,30 +70,27 @@ struct AdministradorView: View {
                     // BOTONES DEL PANEL
                     VStack(spacing: 15) {
                         
-                        Button("📋 Visualizar Reservas y Mesas") {
+                        Button(NSLocalizedString("admin_ver_reservas", comment: "Visualizar Reservas y Mesas")) {
                             mostrarMesas = true
                         }
                         .buttonStyle(AdminButtonStyle())
                         
-                        Button("👥 Visualizar Usuarios") {
+                        Button(NSLocalizedString("admin_ver_usuarios", comment: "Visualizar Usuarios")) {
                             mostrarUsuarios = true
                         }
                         .buttonStyle(AdminButtonStyle())
                         
-                        Button("🍽️ Visualizar Menús") {
+                        Button(NSLocalizedString("admin_ver_menu", comment: "Visualizar Menús")) {
                             mostrarMenu = true
                         }
                         .buttonStyle(AdminButtonStyle())
                         
-                        
-                    
-                        Button("🔳 Generar QR del Empleado") {
+                        Button(NSLocalizedString("admin_generar_qr", comment: "Generar QR del Empleado")) {
                             mostrarQR = true
                         }
                         .buttonStyle(AdminButtonStyle())
-                      
                         
-                        Button("🚪 Cerrar Sesión") {
+                        Button(NSLocalizedString("admin_cerrar_sesion", comment: "Cerrar Sesión")) {
                             storage.usuarioActual = nil
                             mostrarLanding = true
                         }
@@ -106,8 +103,7 @@ struct AdministradorView: View {
                 }
                 .padding()
             }
-            .navigationBarHidden(true)
-            
+            .navigationBarHidden(true) // ❌ No mostramos botón de regresar
             
             // MARK: - NAVEGACIONES
             .fullScreenCover(isPresented: $mostrarLanding) {
@@ -122,17 +118,14 @@ struct AdministradorView: View {
             .sheet(isPresented: $mostrarMesas) {
                 ListaMesasView()
             }
-            
-            // 🔳 QR EMPLEADO
             .sheet(isPresented: $mostrarQR) {
                 if let u = usuario {
-                    QRUsuarioView(usuario: u)    // 👈 AQUI SE INTEGRA
+                    QRUsuarioView(usuario: u)
                 }
             }
         }
     }
 }
-
 
 // Estilo uniforme para los botones
 struct AdminButtonStyle: ButtonStyle {
@@ -147,6 +140,7 @@ struct AdminButtonStyle: ButtonStyle {
     }
 }
 
+// Preview
 struct AdministradorView_Previews: PreviewProvider {
     static var previews: some View {
         let admin = Usuario(
@@ -163,3 +157,4 @@ struct AdministradorView_Previews: PreviewProvider {
         return AdministradorView()
     }
 }
+
